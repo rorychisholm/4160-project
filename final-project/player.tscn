@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=26 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
+[ext_resource type="Script" path="res://player.gd" id="1_yrvga"]
 [ext_resource type="Texture2D" uid="uid://brwon86phxlnk" path="res://assets/_Idle.png" id="2_1s3ay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nf78"]
@@ -161,6 +162,8 @@ radius = 16.0
 height = 80.0
 
 [node name="Player" type="Area2D"]
+position = Vector2(368, 320)
+script = ExtResource("1_yrvga")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -169,7 +172,7 @@ position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
 animation = &"stand"
-frame_progress = 0.524754
+frame_progress = 0.906299
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
