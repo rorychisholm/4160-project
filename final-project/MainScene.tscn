@@ -11,6 +11,10 @@ size = Vector2(772, 101)
 [node name="Player" parent="." instance=ExtResource("1_wr4wi")]
 position = Vector2(100, 100)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -150)
+remote_path = NodePath("../../Camera2D")
+
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(350, 430)
 metadata/_edit_group_ = true
@@ -28,3 +32,7 @@ texture = ExtResource("1_uqc2s")
 position = Vector2(-187, 1.52588e-05)
 scale = Vector2(0.2, 0.182)
 texture = ExtResource("1_uqc2s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(100, -50)
+zoom = Vector2(1.2, 1.2)
