@@ -161,8 +161,8 @@ animations = [{
 radius = 16.0
 height = 80.0
 
-[node name="Player" type="Area2D"]
-position = Vector2(368, 320)
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(59, 116)
 script = ExtResource("1_yrvga")
 metadata/_edit_group_ = true
 
@@ -172,7 +172,7 @@ position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
 animation = &"stand"
-frame_progress = 0.906299
+speed_scale = 3.0
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

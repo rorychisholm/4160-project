@@ -1,33 +1,40 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
+@export var gravity = 980
+@export var jump_strength = -400
 var screen_size # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	screen_size = get_viewport_rect().size
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+func _physics_process(delta):
+	#apply gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
+	#left/right movement
+	var direction = 0
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		direction += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		direction -= 1
+		
+	velocity.x = direction * speed  # Set horizontal velocity
+	
+	# Handle input with direct conditions
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y = jump_strength
+		
+	move_and_slide()
 		
 	$AnimatedSprite2D.play()
-	if velocity.x != 0:
+	if direction != 0:
+		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.animation = "run"
-		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		$AnimatedSprite2D.flip_h = direction < 0
 	else:
 		$AnimatedSprite2D.animation = "stand"
-		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-		
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)

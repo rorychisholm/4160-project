@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://dnjsekf548ee2"]
+[gd_scene load_steps=4 format=3 uid="uid://dnjsekf548ee2"]
+
+[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="1_uqc2s"]
+[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://player.tscn" id="1_wr4wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
+size = Vector2(772, 101)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wr4wi")]
+position = Vector2(100, 100)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(350, 430)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(6, 0.5)
+shape = SubResource("RectangleShape2D_5isro")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ground"]
+position = Vector2(198, -0.733745)
+scale = Vector2(0.201042, 0.18083)
+texture = ExtResource("1_uqc2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(-187, 1.52588e-05)
+scale = Vector2(0.2, 0.182)
+texture = ExtResource("1_uqc2s")
