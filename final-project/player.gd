@@ -30,11 +30,16 @@ func _physics_process(delta):
 		velocity.y = jump_strength
 		
 	move_and_slide()
-		
+	
+	# ANIMATIONS
 	$AnimatedSprite2D.play()
-	if direction != 0:
+	if velocity.y < 0:  #Player is jumping
+		$AnimatedSprite2D.animation = "jump"
+	elif velocity.y > 0:  #Player is falling
+		$AnimatedSprite2D.animation = "fall"
+	elif direction != 0: #Player is running
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.animation = "run"
 		$AnimatedSprite2D.flip_h = direction < 0
-	else:
+	else: #Player is standing
 		$AnimatedSprite2D.animation = "stand"

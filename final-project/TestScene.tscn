@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnjsekf548ee2"]
+
+[ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_o2dj0"]
+[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://player.tscn" id="1_pvcpx"]
+[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="2_ycn7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
+size = Vector2(1298, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f22rm"]
+size = Vector2(72, 846)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(330.138, 104.5)
+scale = Vector2(1.85468, 1.85468)
+texture = ExtResource("1_o2dj0")
+
+[node name="Player" parent="." instance=ExtResource("1_pvcpx")]
+position = Vector2(84, 298)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -150)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(61, 526)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(269, 0.5)
+shape = SubResource("RectangleShape2D_5isro")
+
+[node name="ground3" type="Sprite2D" parent="Ground"]
+position = Vector2(653.599, -0.406269)
+scale = Vector2(0.274376, 0.179615)
+texture = ExtResource("2_ycn7m")
+
+[node name="ground2" type="Sprite2D" parent="Ground"]
+position = Vector2(198, 2.29478e-05)
+scale = Vector2(0.201042, 0.18083)
+texture = ExtResource("2_ycn7m")
+
+[node name="ground1" type="Sprite2D" parent="Ground"]
+position = Vector2(-187, 1.52588e-05)
+scale = Vector2(0.2, 0.182)
+texture = ExtResource("2_ycn7m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(84, 148)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-375, -72)
+metadata/_edit_group_ = true
+
+[node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1384, 222)
+shape = SubResource("RectangleShape2D_f22rm")
+
+[node name="left_wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(26, 224)
+shape = SubResource("RectangleShape2D_f22rm")
