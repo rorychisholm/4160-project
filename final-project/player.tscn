@@ -317,7 +317,6 @@ script = ExtResource("13_fpp71")
 
 [node name="BasicAttack" type="Area2D" parent="."]
 position = Vector2(43, -45)
-scale = Vector2(1, 1)
 collision_mask = 0
 script = ExtResource("14_k6b5d")
 metadata/_edit_group_ = true
