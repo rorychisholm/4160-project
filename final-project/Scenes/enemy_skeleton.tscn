@@ -1,12 +1,17 @@
-[gd_scene load_steps=51 format=3 uid="uid://cma7oi2bpjivl"]
+[gd_scene load_steps=58 format=3 uid="uid://cma7oi2bpjivl"]
 
-[ext_resource type="Script" path="res://enemy_skeleton.gd" id="1_0w32w"]
+[ext_resource type="Script" path="res://Entities/enemy_skeleton.gd" id="1_0w32w"]
 [ext_resource type="Texture2D" uid="uid://ddj2h3n8ocfw6" path="res://assets/Skeleton1Animations/Skeleton_01_White_Idle.png" id="1_2vmuc"]
 [ext_resource type="Texture2D" uid="uid://d30oq8w1x1dve" path="res://assets/Skeleton1Animations/Skeleton_01_White_Attack1.png" id="2_anqf6"]
-[ext_resource type="Script" path="res://health.gd" id="2_rc58b"]
-[ext_resource type="Script" path="res://hurtbox.gd" id="3_mvr6q"]
+[ext_resource type="Script" path="res://Health/health.gd" id="2_rc58b"]
+[ext_resource type="Script" path="res://Health/hurtbox.gd" id="3_mvr6q"]
 [ext_resource type="Texture2D" uid="uid://3mn281xrd6dt" path="res://assets/Skeleton1Animations/Skeleton_01_White_Die.png" id="3_qqh2o"]
 [ext_resource type="Texture2D" uid="uid://dyk00q01ryfrm" path="res://assets/Skeleton1Animations/Skeleton_01_White_Walk.png" id="5_27qsp"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_state_machine.gd" id="8_ebvm8"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_idle.gd" id="9_vsw2j"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_attack.gd" id="10_1oruh"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_run.gd" id="10_5mr2f"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_death.gd" id="10_t578f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reigx"]
 atlas = ExtResource("2_anqf6")
@@ -319,10 +324,16 @@ height = 48.0
 radius = 11.0
 height = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_40ka3"]
+radius = 166.573
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4lhp"]
+radius = 30.4985
+height = 113.783
+
 [node name="Enemy_Skeleton" type="CharacterBody2D"]
-scale = Vector2(1.22, 1.22)
+scale = Vector2(1.705, 1.705)
 script = ExtResource("1_0w32w")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vqph0")
@@ -344,5 +355,35 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_ao7ai")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("8_ebvm8")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("9_vsw2j")
+
+[node name="DeathState" type="Node" parent="StateMachine"]
+script = ExtResource("10_t578f")
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("10_1oruh")
+
+[node name="RunState" type="Node" parent="StateMachine"]
+script = ExtResource("10_5mr2f")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(-3.51906, 7.03812)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_40ka3")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(-2.34604, 3.51906)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_f4lhp")
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_health_empty"]

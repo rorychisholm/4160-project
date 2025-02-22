@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnjsekf548ee2"]
 
-[ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_o2dj0"]
-[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://player.tscn" id="1_pvcpx"]
-[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="2_ycn7m"]
-[ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://enemy_skeleton.tscn" id="4_5buwn"]
+[ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
+[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_o5yh2"]
+[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="3_7s1gv"]
+[ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
 size = Vector2(1298, 101)
@@ -16,10 +16,10 @@ size = Vector2(72, 846)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(330.138, 104.5)
 scale = Vector2(1.85468, 1.85468)
-texture = ExtResource("1_o2dj0")
+texture = ExtResource("1_ak3rh")
 
-[node name="Player" parent="." instance=ExtResource("1_pvcpx")]
-position = Vector2(84, 298)
+[node name="Player" parent="." instance=ExtResource("2_o5yh2")]
+position = Vector2(59, 347)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -150)
@@ -36,20 +36,20 @@ shape = SubResource("RectangleShape2D_5isro")
 [node name="ground3" type="Sprite2D" parent="Ground"]
 position = Vector2(653.599, -0.406269)
 scale = Vector2(0.274376, 0.179615)
-texture = ExtResource("2_ycn7m")
+texture = ExtResource("3_7s1gv")
 
 [node name="ground2" type="Sprite2D" parent="Ground"]
 position = Vector2(198, 2.29478e-05)
 scale = Vector2(0.201042, 0.18083)
-texture = ExtResource("2_ycn7m")
+texture = ExtResource("3_7s1gv")
 
 [node name="ground1" type="Sprite2D" parent="Ground"]
 position = Vector2(-187, 1.52588e-05)
 scale = Vector2(0.2, 0.182)
-texture = ExtResource("2_ycn7m")
+texture = ExtResource("3_7s1gv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(84, 148)
+position = Vector2(59, 197)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-375, -72)
@@ -63,6 +63,5 @@ shape = SubResource("RectangleShape2D_f22rm")
 position = Vector2(26, 224)
 shape = SubResource("RectangleShape2D_f22rm")
 
-[node name="Enemy_Skeleton" parent="." instance=ExtResource("4_5buwn")]
+[node name="Enemy_Skeleton" parent="." instance=ExtResource("4_5tru7")]
 position = Vector2(627, 394)
-scale = Vector2(2.02, 2.02)
