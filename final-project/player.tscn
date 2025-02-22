@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=50 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://player.gd" id="1_yrvga"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://StateMachine/jump.gd" id="10_tp2a3"]
 [ext_resource type="Script" path="res://StateMachine/fall.gd" id="11_bq1s7"]
 [ext_resource type="Script" path="res://StateMachine/attack.gd" id="12_5au0a"]
+[ext_resource type="Script" path="res://health.gd" id="13_fpp71"]
+[ext_resource type="Script" path="res://hitbox.gd" id="14_k6b5d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -265,18 +267,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ipsl"]
-radius = 18.4155
-height = 57.1849
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6oiec"]
 radius = 16.0
 height = 80.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts0ij"]
+radius = 39.0
+height = 108.0
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(59, 116)
 script = ExtResource("1_yrvga")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -284,18 +285,10 @@ position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
 animation = &"attack"
+frame = 5
+frame_progress = 1.0
 speed_scale = 3.0
 centered = false
-
-[node name="BasicHitHitbox" type="Area2D" parent="AnimatedSprite2D"]
-position = Vector2(82.3851, 59.1946)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/BasicHitHitbox"]
-position = Vector2(-0.969246, 0)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_7ipsl")
-disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, -40)
@@ -319,4 +312,18 @@ script = ExtResource("11_bq1s7")
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("12_5au0a")
 
-[connection signal="area_entered" from="AnimatedSprite2D/BasicHitHitbox" to="." method="_on_BasicHitHitbox_area_entered"]
+[node name="Health" type="Node" parent="."]
+script = ExtResource("13_fpp71")
+
+[node name="BasicAttack" type="Area2D" parent="."]
+position = Vector2(43, -45)
+scale = Vector2(1, 1)
+collision_mask = 0
+script = ExtResource("14_k6b5d")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttack"]
+position = Vector2(-1, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ts0ij")
+disabled = true
