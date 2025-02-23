@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var run_state = $StateMachine/RunState
 @onready var attack_state = $StateMachine/AttackState
 @onready var death_state = $StateMachine/DeathState
+@onready var hurt_state = $StateMachine/HurtState
 
 @onready var health_node = $Health
 

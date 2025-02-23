@@ -2,15 +2,10 @@ extends State
 
 class_name IdleState
 
-
 func enter(player):
 	#print("Entered IdleState")
-	if player == null:
-		player = get_parent().get_parent()  # Ensure player is assigned
-	
-	if player:
-		player.velocity = Vector2.ZERO
-		player.get_node("AnimatedSprite2D").animation = "stand"
+	player.velocity = Vector2.ZERO
+	player.get_node("AnimatedSprite2D").animation = "stand"
 
 func process_input(player, event: InputEvent):
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):

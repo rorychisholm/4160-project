@@ -6,6 +6,8 @@ extends Area2D
 signal received_damage(damage: int)
 
 @export var health: Health
+@onready var state_machine = get_parent().get_node("StateMachine")
+
 
 func _ready():
 	connect("area_entered", _on_area_entered)
@@ -18,3 +20,7 @@ func _on_area_entered(area: Area2D) -> void:
 		received_damage.emit(hitbox.damage)
 		if health.health == 0:
 			health.health_empty.emit()
+		else:
+			state_machine.change_state(state_machine.get_node("HurtState"))  # Use the node
+
+	

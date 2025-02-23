@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cma7oi2bpjivl"]
+[gd_scene load_steps=58 format=3 uid="uid://cma7oi2bpjivl"]
 
 [ext_resource type="Script" path="res://Entities/enemy_skeleton.gd" id="1_0w32w"]
 [ext_resource type="Texture2D" uid="uid://ddj2h3n8ocfw6" path="res://assets/Skeleton1Animations/Skeleton_01_White_Idle.png" id="1_2vmuc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_attack.gd" id="10_1oruh"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_run.gd" id="10_5mr2f"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_death.gd" id="10_t578f"]
+[ext_resource type="Script" path="res://Scenes/sceleton_hurt.gd" id="13_p7441"]
 [ext_resource type="Script" path="res://Health/hitbox.gd" id="13_s8buf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ev00"]
@@ -363,6 +364,9 @@ script = ExtResource("10_1oruh")
 [node name="RunState" type="Node" parent="StateMachine"]
 script = ExtResource("10_5mr2f")
 
+[node name="HurtState" type="Node" parent="StateMachine"]
+script = ExtResource("13_p7441")
+
 [node name="AttackBox" type="Area2D" parent="."]
 position = Vector2(20.5279, -2.93255)
 collision_layer = 2
@@ -372,7 +376,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(-3.8147e-06, -4.76837e-07)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l7wa7")
 disabled = true
 
