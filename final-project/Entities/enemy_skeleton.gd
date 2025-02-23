@@ -78,7 +78,23 @@ func move_towards_player(delta):
 		print("Moving towards player, velocity: ", velocity)
 		# Flip the sprite based on the direction of movement
 		if velocity.x > 0:
-			$AnimatedSprite2D.flip_h = false  # Flip sprite to face right (default)
+			flip_direction(false)  # Flip sprite to face right (default)
 		elif velocity.x < 0:
-			$AnimatedSprite2D.flip_h = true  # Flip sprite to face left (towards player)
+			flip_direction(true)  # Flip sprite to face left (towards player)
 			
+func flip_direction(is_left: bool):
+	var hitbox = $CollisionShape2D
+	var attack_hitbox = $AttackBox
+	var hurtbox = $HurtBox
+	var enemy_offset: float = -2  # Adjust based on hitbox size
+	var attack_offset: float = 27
+	var direction = -1 if is_left else 1
+	
+	if not is_left: #if right
+		enemy_offset = -10
+		attack_offset = 17
+	
+	$AnimatedSprite2D.flip_h = is_left
+	hitbox.position.x = direction * enemy_offset
+	hurtbox.position.x = direction * enemy_offset
+	attack_hitbox.position.x = direction * attack_offset

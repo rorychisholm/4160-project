@@ -61,4 +61,3 @@ func flip_direction(is_left: bool):
 	hurtbox.position.x = direction * player_offset
 	attack_hitbox.position.x = direction * attack_offset
 	
-	
