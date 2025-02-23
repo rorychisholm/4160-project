@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=51 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -275,6 +275,10 @@ height = 80.0
 radius = 39.0
 height = 108.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2gnqi"]
+radius = 16.0
+height = 80.0
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(59, 116)
 script = ExtResource("1_yrvga")
@@ -327,3 +331,12 @@ position = Vector2(-1, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ts0ij")
 disabled = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(-15, -41)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_2gnqi")

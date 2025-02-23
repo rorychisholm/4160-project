@@ -3,7 +3,7 @@ extends State
 class_name JumpState
 
 func enter(player):
-	print("Entered JumpState")
+	#print("Entered JumpState")
 	player.velocity.y = player.jump_strength
 	player.get_node("AnimatedSprite2D").animation = "jump"
 

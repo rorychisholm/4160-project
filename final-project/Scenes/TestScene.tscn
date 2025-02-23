@@ -18,7 +18,7 @@ position = Vector2(330.138, 104.5)
 scale = Vector2(1.85468, 1.85468)
 texture = ExtResource("1_ak3rh")
 
-[node name="Player" parent="." instance=ExtResource("2_o5yh2")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_o5yh2")]
 position = Vector2(59, 347)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]

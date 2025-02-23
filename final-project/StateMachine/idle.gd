@@ -4,7 +4,7 @@ class_name IdleState
 
 
 func enter(player):
-	print("Entered IdleState")
+	#print("Entered IdleState")
 	if player == null:
 		player = get_parent().get_parent()  # Ensure player is assigned
 	

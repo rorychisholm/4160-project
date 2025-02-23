@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cma7oi2bpjivl"]
+[gd_scene load_steps=56 format=3 uid="uid://cma7oi2bpjivl"]
 
 [ext_resource type="Script" path="res://Entities/enemy_skeleton.gd" id="1_0w32w"]
 [ext_resource type="Texture2D" uid="uid://ddj2h3n8ocfw6" path="res://assets/Skeleton1Animations/Skeleton_01_White_Idle.png" id="1_2vmuc"]
@@ -13,49 +13,45 @@
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_run.gd" id="10_5mr2f"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_death.gd" id="10_t578f"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_reigx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ev00"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(0, 0, 87, 64)
+region = Rect2(0, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8yc1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t8on"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(87, 0, 87, 64)
+region = Rect2(96, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tsw4t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_myl5g"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(174, 0, 87, 64)
+region = Rect2(192, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rt7qw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qh38"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(261, 0, 87, 64)
+region = Rect2(288, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmpva"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdv2s"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(348, 0, 87, 64)
+region = Rect2(384, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6f8g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckp4g"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(435, 0, 87, 64)
+region = Rect2(480, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_73p61"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eenlr"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(522, 0, 87, 64)
+region = Rect2(576, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_51up3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o72y"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(609, 0, 87, 64)
+region = Rect2(672, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkyd1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3qsx"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(696, 0, 87, 64)
+region = Rect2(768, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_41v75"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1lwk"]
 atlas = ExtResource("2_anqf6")
-region = Rect2(783, 0, 87, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnl7g"]
-atlas = ExtResource("2_anqf6")
-region = Rect2(870, 0, 87, 64)
+region = Rect2(864, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yga20"]
 atlas = ExtResource("3_qqh2o")
@@ -177,41 +173,38 @@ region = Rect2(864, 0, 96, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_reigx")
+"texture": SubResource("AtlasTexture_7ev00")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f8yc1")
+"texture": SubResource("AtlasTexture_3t8on")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tsw4t")
+"texture": SubResource("AtlasTexture_myl5g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rt7qw")
+"texture": SubResource("AtlasTexture_5qh38")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmpva")
+"texture": SubResource("AtlasTexture_cdv2s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d6f8g")
+"texture": SubResource("AtlasTexture_ckp4g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_73p61")
+"texture": SubResource("AtlasTexture_eenlr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_51up3")
+"texture": SubResource("AtlasTexture_1o72y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jkyd1")
+"texture": SubResource("AtlasTexture_w3qsx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_41v75")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnl7g")
+"texture": SubResource("AtlasTexture_a1lwk")
 }],
-"loop": false,
+"loop": true,
 "name": &"Attack",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -324,20 +317,18 @@ height = 48.0
 radius = 11.0
 height = 48.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_40ka3"]
-radius = 166.573
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4lhp"]
-radius = 30.4985
-height = 113.783
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7wa7"]
+size = Vector2(41.9501, 12.9032)
 
 [node name="Enemy_Skeleton" type="CharacterBody2D"]
 scale = Vector2(1.705, 1.705)
 script = ExtResource("1_0w32w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.93255, 0)
 sprite_frames = SubResource("SpriteFrames_vqph0")
-animation = &"Idle"
+animation = &"Attack"
+frame_progress = 0.949183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 10)
@@ -371,19 +362,16 @@ script = ExtResource("10_1oruh")
 [node name="RunState" type="Node" parent="StateMachine"]
 script = ExtResource("10_5mr2f")
 
-[node name="DetectionArea" type="Area2D" parent="."]
-position = Vector2(-3.51906, 7.03812)
+[node name="AttackBox" type="Area2D" parent="."]
+position = Vector2(20.5279, -2.93255)
+collision_layer = 2
+collision_mask = 0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource("CircleShape2D_40ka3")
-
-[node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(-2.34604, 3.51906)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_f4lhp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(-3.8147e-06, -4.76837e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l7wa7")
+disabled = true
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_health_empty"]

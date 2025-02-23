@@ -3,7 +3,7 @@ extends State
 class_name RunState
 
 func enter(player):
-	print("Entered RunState")
+	#print("Entered RunState")
 	player.get_node("AnimatedSprite2D").animation = "run"
 
 func process_input(player, event: InputEvent):

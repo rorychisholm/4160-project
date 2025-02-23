@@ -3,7 +3,7 @@ extends State
 class_name FallState
 
 func enter(player):
-	print("Entered FallState")
+	#print("Entered FallState")
 	player.get_node("AnimatedSprite2D").animation = "fall"
 
 func physics_update(player, delta: float):

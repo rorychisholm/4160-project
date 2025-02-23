@@ -3,7 +3,7 @@ extends State
 class_name AttackState
 
 func enter(player):
-	print("Entered AttackState")
+	#print("Entered AttackState")
 	
 	player.velocity.x = 0
 	
