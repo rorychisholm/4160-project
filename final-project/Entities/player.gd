@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 400
 @export var gravity = 980
 @export var jump_strength = -500
+@export var direction = +1;
 
 @onready var state_machine = $StateMachine
 

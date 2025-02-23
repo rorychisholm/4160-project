@@ -1,3 +1,8 @@
+"""
+NOTES
+- animation hasnt been implmented yet only flash
+"""
+
 extends SkeletonState
 
 @export var flash_duration: float = 0.2  # Time for flashing red
@@ -15,10 +20,11 @@ func enter(enemy):
 		print("Player position:", player.global_position)
 		var direction = (enemy.global_position - player.global_position).normalized()
 		enemy.velocity = direction * knockback_force  # Example: Knock enemy back from player
-
+	
 	await get_tree().create_timer(flash_duration).timeout
-	enemy.get_node("AnimatedSprite2D").modulate = Color(1, 1, 1)  # Restore original color
+	enemy.get_node("AnimatedSprite2D").modulate = Color(1, 1, 1) # Restore original color
 	state_machine.change_state(enemy.idle_state)  # Return to idle
+	
 
 func exit(enemy):
 	enemy.velocity = Vector2.ZERO  # Reset movement when leaving state

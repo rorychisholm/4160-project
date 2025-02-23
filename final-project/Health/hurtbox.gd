@@ -20,6 +20,7 @@ func _on_area_entered(area: Area2D) -> void:
 		received_damage.emit(hitbox.damage)
 		if health.health == 0:
 			health.health_empty.emit()
+		## THIS HURT SHOULD PROBABLY BE MOVED
 		else:
 			state_machine.change_state(state_machine.get_node("HurtState"))  # Use the node
 

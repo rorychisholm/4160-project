@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cma7oi2bpjivl"]
+[gd_scene load_steps=64 format=3 uid="uid://cma7oi2bpjivl"]
 
 [ext_resource type="Script" path="res://Entities/enemy_skeleton.gd" id="1_0w32w"]
 [ext_resource type="Texture2D" uid="uid://ddj2h3n8ocfw6" path="res://assets/Skeleton1Animations/Skeleton_01_White_Idle.png" id="1_2vmuc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Health/health.gd" id="2_rc58b"]
 [ext_resource type="Script" path="res://Health/hurtbox.gd" id="3_mvr6q"]
 [ext_resource type="Texture2D" uid="uid://3mn281xrd6dt" path="res://assets/Skeleton1Animations/Skeleton_01_White_Die.png" id="3_qqh2o"]
+[ext_resource type="Texture2D" uid="uid://d0a6dqb8yqwse" path="res://assets/Skeleton1Animations/Skeleton_01_White_Hurt.png" id="4_6x8sp"]
 [ext_resource type="Texture2D" uid="uid://dyk00q01ryfrm" path="res://assets/Skeleton1Animations/Skeleton_01_White_Walk.png" id="5_27qsp"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_state_machine.gd" id="8_ebvm8"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_idle.gd" id="9_vsw2j"]
@@ -98,6 +99,26 @@ region = Rect2(864, 0, 96, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyfy7"]
 atlas = ExtResource("3_qqh2o")
 region = Rect2(960, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4et2"]
+atlas = ExtResource("4_6x8sp")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uteq"]
+atlas = ExtResource("4_6x8sp")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw11c"]
+atlas = ExtResource("4_6x8sp")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qri"]
+atlas = ExtResource("4_6x8sp")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i1ed"]
+atlas = ExtResource("4_6x8sp")
+region = Rect2(384, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qc52"]
 atlas = ExtResource("1_2vmuc")
@@ -248,6 +269,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r4et2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uteq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw11c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i1ed")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2qc52")
 }, {
 "duration": 1.0,
@@ -325,16 +366,12 @@ size = Vector2(41.9501, 12.9032)
 [node name="Enemy_Skeleton" type="CharacterBody2D"]
 scale = Vector2(1.705, 1.705)
 script = ExtResource("1_0w32w")
-speed = null
-gravity = null
-attack_range = null
-detection_range = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.93255, 0)
 sprite_frames = SubResource("SpriteFrames_vqph0")
-animation = &"Idle"
-frame_progress = 0.357777
+animation = &"Hurt"
+frame_progress = 0.448833
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 10)

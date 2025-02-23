@@ -5,6 +5,8 @@ class_name IdleState
 func enter(player):
 	#print("Entered IdleState")
 	player.velocity = Vector2.ZERO
+	if (player.direction < 0):
+		player.flip_direction(true)
 	player.get_node("AnimatedSprite2D").animation = "stand"
 
 func process_input(player, event: InputEvent):

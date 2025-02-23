@@ -2,7 +2,6 @@ extends SkeletonState
 
 func enter(enemy):
 	#print("Enemy in Attack State")
-
 	if enemy.health_node and enemy.health_node.get_health() <= 0:
 		state_machine.change_state(enemy.death_state)
 	else:
