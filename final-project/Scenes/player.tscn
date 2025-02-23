@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=52 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://StateMachine/attack.gd" id="12_5au0a"]
 [ext_resource type="Script" path="res://Health/health.gd" id="13_fpp71"]
 [ext_resource type="Script" path="res://Health/hitbox.gd" id="14_k6b5d"]
+[ext_resource type="Script" path="res://Health/hurtbox.gd" id="15_000ri"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -332,10 +333,12 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ts0ij")
 disabled = true
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 position = Vector2(-15, -41)
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("15_000ri")
+health = NodePath("../Health")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]

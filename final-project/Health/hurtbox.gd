@@ -14,7 +14,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as HitBox
 	if hitbox != null:
 		health.health -= hitbox.damage
-		print("Skeleton Health: ", health.health)
+		print(get_parent(), " Health: ", health.health)
 		received_damage.emit(hitbox.damage)
 		if health.health == 0:
 			health.health_empty.emit()

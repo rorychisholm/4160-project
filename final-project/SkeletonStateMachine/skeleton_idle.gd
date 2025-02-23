@@ -1,7 +1,7 @@
 extends SkeletonState
 
 func enter(enemy):
-	print("Enemy in Idle State")
+	#print("Enemy in Idle State")
 	if enemy == null:
 		enemy = get_parent().get_parent()
 	
