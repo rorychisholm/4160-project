@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=65 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bycd1mo5glb3w" path="res://assets/_Fall.png" id="2_ye4gt"]
 [ext_resource type="Texture2D" uid="uid://txuihbslvt5w" path="res://assets/_Jump.png" id="3_ftlpo"]
 [ext_resource type="Texture2D" uid="uid://dh4smcwl7butl" path="res://assets/_Attack2.png" id="4_bkyru"]
+[ext_resource type="Texture2D" uid="uid://puqg7hqr3ak2" path="res://assets/_Roll.png" id="5_wumo8"]
 [ext_resource type="Script" path="res://StateMachine/idle.gd" id="7_b6as4"]
 [ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="7_h564n"]
 [ext_resource type="Script" path="res://StateMachine/run.gd" id="9_s3jxy"]
@@ -63,6 +64,54 @@ region = Rect2(120, 0, 120, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wa8fo"]
 atlas = ExtResource("3_ftlpo")
 region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt4k7"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frmgu"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnv5"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnlde"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dsog"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehkjf"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpiqq"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpbr7"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh0tf"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkt5x"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xnle"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(1200, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xthem"]
+atlas = ExtResource("5_wumo8")
+region = Rect2(1320, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nf78"]
 atlas = ExtResource("1_s4als")
@@ -199,6 +248,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mt4k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frmgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjnv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnlde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dsog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpiqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpbr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh0tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkt5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xnle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xthem")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6nf78")
 }, {
 "duration": 1.0,
@@ -289,9 +379,8 @@ texture_filter = 1
 position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
-animation = &"attack"
-frame = 5
-frame_progress = 1.0
+animation = &"roll"
+frame_progress = 0.980577
 speed_scale = 3.0
 centered = false
 
