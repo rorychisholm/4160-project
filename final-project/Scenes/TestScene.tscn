@@ -65,3 +65,7 @@ shape = SubResource("RectangleShape2D_f22rm")
 
 [node name="Enemy_Skeleton" parent="." instance=ExtResource("4_5tru7")]
 position = Vector2(627, 394)
+speed = null
+gravity = null
+attack_range = null
+detection_range = null

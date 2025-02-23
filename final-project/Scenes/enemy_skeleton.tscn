@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_attack.gd" id="10_1oruh"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_run.gd" id="10_5mr2f"]
 [ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_death.gd" id="10_t578f"]
-[ext_resource type="Script" path="res://Scenes/sceleton_hurt.gd" id="13_p7441"]
+[ext_resource type="Script" path="res://SkeletonStateMachine/skeleton_hurt.gd" id="13_p7441"]
 [ext_resource type="Script" path="res://Health/hitbox.gd" id="13_s8buf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ev00"]
@@ -325,6 +325,10 @@ size = Vector2(41.9501, 12.9032)
 [node name="Enemy_Skeleton" type="CharacterBody2D"]
 scale = Vector2(1.705, 1.705)
 script = ExtResource("1_0w32w")
+speed = null
+gravity = null
+attack_range = null
+detection_range = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.93255, 0)
