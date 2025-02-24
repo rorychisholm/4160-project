@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkk1beq017idg"]
+
+[ext_resource type="Texture2D" uid="uid://rmtduk3xuuk8" path="res://assets/HealthBar/Heart.png" id="1_fbwsr"]
+[ext_resource type="Script" path="res://UI/health_bar.gd" id="2_6ipmh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p37jh"]
+atlas = ExtResource("1_fbwsr")
+region = Rect2(40.8195, 0.935196, 11.983, 82.5853)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha6m8"]
+atlas = ExtResource("1_fbwsr")
+region = Rect2(11.3692, 69.5629, 19.108, 15.8693)
+margin = Rect2(-3.525, 68.39, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhfcf"]
+atlas = ExtResource("1_fbwsr")
+region = Rect2(14.6079, 0, 12.6307, 69.239)
+margin = Rect2(0, -0.92, 0, 0)
+
+[node name="HealthBar" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 362.0
+offset_top = 95.0
+offset_right = 362.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_p37jh")
+texture_over = SubResource("AtlasTexture_ha6m8")
+texture_progress = SubResource("AtlasTexture_rhfcf")
+script = ExtResource("2_6ipmh")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnjsekf548ee2"]
+[gd_scene load_steps=8 format=3 uid="uid://dnjsekf548ee2"]
 
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_o5yh2"]
 [ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="3_7s1gv"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]
+[ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="5_x3n3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
 size = Vector2(1298, 101)
@@ -65,3 +66,19 @@ shape = SubResource("RectangleShape2D_f22rm")
 [node name="left_wall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(26, 224)
 shape = SubResource("RectangleShape2D_f22rm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="UI" node_paths=PackedStringArray("character") instance=ExtResource("5_x3n3e")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 96.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+character = NodePath("../../Player")

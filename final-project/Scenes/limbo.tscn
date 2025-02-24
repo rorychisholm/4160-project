@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://defkjtv3s8ap8"]
+[gd_scene load_steps=7 format=3 uid="uid://defkjtv3s8ap8"]
 
 [ext_resource type="Texture2D" uid="uid://pxxu3hgr7o6w" path="res://assets/Limbo/BackgroundLimbo.jpg" id="1_4sxym"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_1sw58"]
+[ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="3_7p5m1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx7r8"]
 size = Vector2(3576, 166)
@@ -65,3 +66,19 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(420, 2)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="UI" node_paths=PackedStringArray("character") instance=ExtResource("3_7p5m1")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 96.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+character = NodePath("../../Player")

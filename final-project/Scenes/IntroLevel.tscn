@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5512cein81w0"]
+[gd_scene load_steps=16 format=3 uid="uid://b5512cein81w0"]
 
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
 [ext_resource type="PackedScene" uid="uid://bhfed21m3f2sk" path="res://Scenes/demon.tscn" id="2_v7d1w"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="3_mwkjd"]
-[ext_resource type="Script" path="res://trigger.gd" id="5_rf48t"]
-[ext_resource type="Script" path="res://dialogue_box.gd" id="6_2qwfc"]
+[ext_resource type="Script" path="res://UI/trigger.gd" id="5_rf48t"]
+[ext_resource type="Script" path="res://UI/dialogue_box.gd" id="6_2qwfc"]
 [ext_resource type="Texture2D" uid="uid://dluve6kcvvlc7" path="res://assets/IntroScene/demon circle.png" id="7_wwt7g"]
+[ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="8_akckh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u304e"]
 size = Vector2(2632, 64)
@@ -181,6 +182,22 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="UI" node_paths=PackedStringArray("character") instance=ExtResource("8_akckh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 96.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+character = NodePath("../../Player")
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
 [connection signal="pressed" from="Trigger/CanvasLayer/DialogueBox/Button" to="Trigger/CanvasLayer/DialogueBox" method="_on_button_pressed"]
