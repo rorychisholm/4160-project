@@ -13,9 +13,10 @@ signal health_empty
 var immortality_timer: Timer = null
 
 func take_damage(damage: int):
-	set_health(health - damage)
-	health_lowered.emit()
-	health_changed.emit(damage)
+	if get_health() > 0:
+		set_health(health - damage)
+		health_lowered.emit()
+		health_changed.emit(damage)
 
 func set_max_health(value: int):
 	var clamped_value = 1 if value <=0 else value #make it so max health cant be lower than 1

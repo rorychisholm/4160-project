@@ -18,6 +18,7 @@ extends CharacterBody2D
 @onready var health
 
 var can_move: bool = true
+var alive: bool = true
 
 func _ready():
 	health = $Health

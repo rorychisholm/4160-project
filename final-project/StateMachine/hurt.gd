@@ -25,7 +25,9 @@ func exit(player):
 func _on_animation_finished(player):
 	player.get_node("AnimatedSprite2D").modulate = Color(1, 1, 1) # Restore original color
 	if state_machine:
-		if Input.is_action_just_pressed("basic_attack"):
+		if player.health.get_health() <= 0:
+			state_machine.change_state(player.death_state)
+		elif Input.is_action_just_pressed("basic_attack"):
 			state_machine.change_state(player.attack_state)
 		elif Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
 			state_machine.change_state(player.run_state)

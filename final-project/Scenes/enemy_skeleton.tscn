@@ -356,12 +356,12 @@ animations = [{
 radius = 11.0
 height = 48.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7wa7"]
+size = Vector2(41.9501, 12.9032)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ao7ai"]
 radius = 11.0
 height = 48.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7wa7"]
-size = Vector2(41.9501, 12.9032)
 
 [node name="Enemy_Skeleton" type="CharacterBody2D"]
 scale = Vector2(1.705, 1.705)
@@ -370,8 +370,8 @@ script = ExtResource("1_0w32w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.93255, 0)
 sprite_frames = SubResource("SpriteFrames_vqph0")
-animation = &"Hurt"
-frame_progress = 0.448833
+animation = &"Attack"
+frame_progress = 0.0136835
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 10)
@@ -379,16 +379,6 @@ shape = SubResource("CapsuleShape2D_dt6xd")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_rc58b")
-
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
-position = Vector2(-3, 10)
-collision_layer = 0
-script = ExtResource("3_mvr6q")
-health = NodePath("../Health")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CapsuleShape2D_ao7ai")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("8_ebvm8")
@@ -410,6 +400,7 @@ script = ExtResource("13_p7441")
 
 [node name="AttackBox" type="Area2D" parent="."]
 position = Vector2(20.5279, -2.93255)
+scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("13_s8buf")
@@ -419,5 +410,16 @@ metadata/_edit_group_ = true
 position = Vector2(-3.8147e-06, -4.76837e-07)
 shape = SubResource("RectangleShape2D_l7wa7")
 disabled = true
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+position = Vector2(-3, 10)
+scale = Vector2(1, 1)
+collision_layer = 0
+script = ExtResource("3_mvr6q")
+health = NodePath("../Health")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_ao7ai")
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_health_empty"]

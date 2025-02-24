@@ -9,7 +9,7 @@ func enter(player):
 		player.flip_direction(true)
 	player.get_node("AnimatedSprite2D").animation = "stand"
 	if not player.get_node("Health").is_connected("health_lowered", Callable(self, "enter_hurt_state")):
-		player.get_node("Health").health_lowered.connect(enter_hurt_state)  # Connect the signal if it's not connected already
+		player.get_node("Health").health_lowered.connect(enter_hurt_state)
 
 func enter_hurt_state():
 	state_machine.change_state(player.hurt_state)
