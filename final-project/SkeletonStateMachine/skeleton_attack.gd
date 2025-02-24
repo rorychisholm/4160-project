@@ -1,5 +1,6 @@
 extends SkeletonState
 
+
 func enter(enemy):
 	#print("Enemy in Attack State")
 	if enemy.health_node and enemy.health_node.get_health() <= 0:
@@ -23,6 +24,8 @@ func _on_animation_finished():
 	if state_machine and enemy.global_position.distance_to(enemy.player.global_position) > enemy.attack_range:
 		state_machine.change_state(enemy.run_state)
 		enemy.get_node("AnimatedSprite2D").play()
+		var hitbox = enemy.get_node("AttackBox/CollisionShape2D")
+		hitbox.disabled = true
 	
 	
 func exit(enemy):

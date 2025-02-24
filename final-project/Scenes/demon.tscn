@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhfed21m3f2sk"]
+
+[ext_resource type="Script" path="res://Entities/demon.gd" id="1_1ljak"]
+[ext_resource type="Texture2D" uid="uid://bl02r6c7ser0j" path="res://assets/IntroScene/satiro-Sheet v1.1.png" id="1_bwopm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0bxi"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoy42"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el4ll"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmq4r"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hgcy"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d71m"]
+atlas = ExtResource("1_bwopm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vn0q1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0bxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoy42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el4ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmq4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hgcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d71m")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjrco"]
+radius = 15.0
+height = 46.0
+
+[node name="Demon" type="CharacterBody2D"]
+script = ExtResource("1_1ljak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -7)
+scale = Vector2(2.5625, 2.5625)
+sprite_frames = SubResource("SpriteFrames_vn0q1")
+animation = &"Idle"
+frame_progress = 0.53283
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bjrco")

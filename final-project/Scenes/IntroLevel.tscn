@@ -1,0 +1,180 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5512cein81w0"]
+
+[ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
+[ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
+[ext_resource type="PackedScene" uid="uid://bhfed21m3f2sk" path="res://Scenes/demon.tscn" id="2_v7d1w"]
+[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="3_mwkjd"]
+[ext_resource type="Script" path="res://trigger.gd" id="5_rf48t"]
+[ext_resource type="Script" path="res://Scenes/dialogue_box.gd" id="6_2qwfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u304e"]
+size = Vector2(2632, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjmd7"]
+size = Vector2(56, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt28e"]
+size = Vector2(44, 748)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alesc"]
+size = Vector2(131, 710)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu5hb"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 0.968627)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="FontVariation" id="FontVariation_314fs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fyaw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="IntroLevel" type="Node2D"]
+position = Vector2(894, -9)
+
+[node name="Background 1" type="Sprite2D" parent="."]
+position = Vector2(-631, 110)
+scale = Vector2(0.285494, 0.285494)
+texture = ExtResource("1_jaeai")
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(684, 110)
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("1_jaeai")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-1280, 462)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1306, -2)
+shape = SubResource("RectangleShape2D_u304e")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-988, 4)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(1, 115)
+shape = SubResource("RectangleShape2D_tjmd7")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(894, -4)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(12, 120)
+shape = SubResource("RectangleShape2D_kt28e")
+
+[node name="Demon" parent="." instance=ExtResource("2_v7d1w")]
+position = Vector2(847, 370)
+scale = Vector2(1.61, 1.61)
+
+[node name="Player" parent="." instance=ExtResource("3_mwkjd")]
+position = Vector2(-907, 418)
+scale = Vector2(1, 1)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(174, -246)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Pillar12" type="Sprite2D" parent="."]
+position = Vector2(-637.555, 116)
+scale = Vector2(2.30864, 2.30864)
+texture = ExtResource("2_pvgns")
+
+[node name="Pillar34" type="Sprite2D" parent="."]
+position = Vector2(682, 112)
+scale = Vector2(2.30864, 2.30864)
+texture = ExtResource("2_pvgns")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-733, 172)
+scale = Vector2(1, 1)
+zoom = Vector2(0.88, 0.88)
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2(473, 434)
+script = ExtResource("5_rf48t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(55.5, -326)
+shape = SubResource("RectangleShape2D_alesc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Trigger"]
+
+[node name="DialogueBox" type="Control" parent="Trigger/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.283
+anchor_right = 0.5
+anchor_bottom = 0.283
+offset_left = -365.0
+offset_top = -99.84
+offset_right = 298.0
+offset_bottom = 71.16
+size_flags_horizontal = 4
+script = ExtResource("6_2qwfc")
+
+[node name="Panel" type="Panel" parent="Trigger/CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 7.0
+offset_right = 621.0
+offset_bottom = 155.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hu5hb")
+
+[node name="Button" type="Button" parent="Trigger/CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.649
+anchor_right = 0.5
+anchor_bottom = 0.649
+offset_left = 220.5
+offset_top = 0.0209885
+offset_right = 278.5
+offset_bottom = 35.021
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.486275)
+theme_override_fonts/font = SubResource("FontVariation_314fs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fyaw")
+text = "Skip"
+
+[node name="Speaker" type="Label" parent="Trigger/CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 172.0
+offset_bottom = 40.0
+
+[node name="Dialogue" type="Label" parent="Trigger/CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -48.5
+offset_right = 247.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="pressed" from="Trigger/CanvasLayer/DialogueBox/Button" to="Trigger/CanvasLayer/DialogueBox" method="_on_button_pressed"]

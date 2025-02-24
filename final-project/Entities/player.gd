@@ -17,6 +17,8 @@ extends CharacterBody2D
 
 @onready var health
 
+var can_move: bool = true
+
 func _ready():
 	health = $Health
 	print(health)
@@ -63,3 +65,6 @@ func flip_direction(is_left: bool):
 	hurtbox.position.x = direction * player_offset
 	attack_hitbox.position.x = direction * attack_offset
 	
+func toggle_input():
+	can_move = false if can_move == true else true
+	state_machine.change_state(idle_state)
