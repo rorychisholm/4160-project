@@ -3,6 +3,7 @@ extends Node
 
 signal max_health_changed(diff: int)
 signal health_changed(diff: int)
+signal health_lowered
 signal health_empty
 
 @export var max_health: int = 3 : set = set_max_health, get = get_max_health
@@ -11,7 +12,9 @@ signal health_empty
 @export var immortality: bool = false
 var immortality_timer: Timer = null
 
-
+func take_damage(damage: int):
+	set_health(health - damage)
+	health_lowered.emit()
 
 func set_max_health(value: int):
 	var clamped_value = 1 if value <=0 else value #make it so max health cant be lower than 1

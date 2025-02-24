@@ -8,6 +8,11 @@ func enter(player):
 	if (player.direction < 0):
 		player.flip_direction(true)
 	player.get_node("AnimatedSprite2D").animation = "stand"
+	player.get_node("Health").health_lowered.connect(enter_hurt_state)  # Listen for hurt signal
+
+func enter_hurt_state():
+	state_machine.change_state(player.hurt_state)
+	player.velocity.x = -1 * player.direction * 300  # Apply knockback
 
 func process_input(player, event: InputEvent):
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):

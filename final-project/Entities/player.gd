@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var jump_state = $StateMachine/JumpState
 @onready var fall_state = $StateMachine/FallState
 @onready var attack_state = $StateMachine/AttackState
+@onready var hurt_state = $StateMachine/HurtState
+@onready var death_state = $StateMachine/DeathState
 
 @onready var health
 

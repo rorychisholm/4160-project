@@ -15,15 +15,8 @@ func _ready():
 func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as HitBox
 	if hitbox != null:
-		health.health -= hitbox.damage
+		health.take_damage(hitbox.damage)
 		print(get_parent(), " Health: ", health.health)
 		received_damage.emit(hitbox.damage)
 		if health.health == 0:
 			health.health_empty.emit()
-		## THIS HURT SHOULD PROBABLY BE MOVED
-		"""
-		else:
-			state_machine.change_state(state_machine.get_node("HurtState"))  # Use the node
-		"""
-
-	
