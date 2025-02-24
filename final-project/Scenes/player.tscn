@@ -526,3 +526,5 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_2gnqi")
+
+[connection signal="health_empty" from="Health" to="." method="_on_health_health_empty"]

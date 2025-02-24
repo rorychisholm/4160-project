@@ -21,7 +21,6 @@ var can_move: bool = true
 
 func _ready():
 	health = $Health
-	print(health)
 	if health == null:
 		print("Error, health node missing in player scene!")
 	else:
@@ -41,6 +40,7 @@ func _ready():
 
 func _on_health_health_empty() -> void:
 	print("PLAYER HAS DIED")
+	#state_machine.change_state(death_state)
 	
 
 func _physics_process(delta):
