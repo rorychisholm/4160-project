@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5512cein81w0"]
+[gd_scene load_steps=15 format=3 uid="uid://b5512cein81w0"]
 
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
 [ext_resource type="PackedScene" uid="uid://bhfed21m3f2sk" path="res://Scenes/demon.tscn" id="2_v7d1w"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="3_mwkjd"]
 [ext_resource type="Script" path="res://trigger.gd" id="5_rf48t"]
-[ext_resource type="Script" path="res://Scenes/dialogue_box.gd" id="6_2qwfc"]
+[ext_resource type="Script" path="res://dialogue_box.gd" id="6_2qwfc"]
+[ext_resource type="Texture2D" uid="uid://dluve6kcvvlc7" path="res://assets/IntroScene/demon circle.png" id="7_wwt7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u304e"]
 size = Vector2(2632, 64)
@@ -78,9 +79,15 @@ shape = SubResource("RectangleShape2D_kt28e")
 position = Vector2(847, 370)
 scale = Vector2(1.61, 1.61)
 
-[node name="Player" parent="." instance=ExtResource("3_mwkjd")]
+[node name="circle" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(458, 418)
+scale = Vector2(0.348765, 0.348765)
+skew = 1.04545
+texture = ExtResource("7_wwt7g")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_mwkjd")]
 position = Vector2(-907, 418)
-scale = Vector2(1, 1)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(174, -246)
@@ -98,7 +105,6 @@ texture = ExtResource("2_pvgns")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-733, 172)
-scale = Vector2(1, 1)
 zoom = Vector2(0.88, 0.88)
 
 [node name="Trigger" type="Area2D" parent="."]

@@ -23,5 +23,10 @@ func _on_button_pressed() -> void:
 	if current_index in dialogue_data:
 		start_dialogue()
 	else:
+		get_parent().get_parent().get_node("CollisionShape2D").disabled = true
 		visible = false
-		#get_tree().get_nodes_in_group("Player")[0].can_move = true
+		var circle = get_parent().get_parent().get_parent().get_node("circle")
+		circle.visible = true
+		await get_tree().create_timer(2).timeout
+		get_tree().get_nodes_in_group("player")[0].can_move = true
+		get_tree().change_scene_to_file("res://Scenes/limbo.tscn")

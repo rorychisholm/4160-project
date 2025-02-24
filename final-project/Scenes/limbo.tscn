@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://defkjtv3s8ap8"]
+
+[ext_resource type="Texture2D" uid="uid://pxxu3hgr7o6w" path="res://assets/Limbo/BackgroundLimbo.jpg" id="1_4sxym"]
+[ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_1sw58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx7r8"]
+size = Vector2(3576, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11y6r"]
+size = Vector2(145, 771)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr5km"]
+size = Vector2(99, 877)
+
+[node name="Limbo" type="Node2D"]
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(465, 201)
+scale = Vector2(0.730625, 0.730625)
+texture = ExtResource("1_4sxym")
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(1679, 202)
+scale = Vector2(0.731, 0.731)
+texture = ExtResource("1_4sxym")
+metadata/_edit_lock_ = true
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(2818, 202)
+scale = Vector2(0.731, 0.731)
+texture = ExtResource("1_4sxym")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-133, 496)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1778, 66)
+shape = SubResource("RectangleShape2D_rx7r8")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(11, 169)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(36, -20.5)
+shape = SubResource("RectangleShape2D_11y6r")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(3159, 448)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(39.5, -241.5)
+shape = SubResource("RectangleShape2D_jr5km")
+
+[node name="Player" parent="." instance=ExtResource("2_1sw58")]
+position = Vector2(300, 146)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(120, -144)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(420, 2)
