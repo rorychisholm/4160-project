@@ -505,6 +505,7 @@ script = ExtResource("17_suy4x")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("13_fpp71")
+max_health = 10
 
 [node name="BasicAttack" type="Area2D" parent="."]
 position = Vector2(43, -45)
