@@ -21,7 +21,10 @@ func attack(enemy):
 		hitbox.set_deferred("disabled", false)
 	else:
 		hitbox.set_deferred("disabled", true)
-	enemy.get_node("AnimatedSprite2D").animation_finished.connect(_on_animation_finished.bind(enemy), CONNECT_ONE_SHOT)
+	
+	if not enemy.get_node("AnimatedSprite2D").animation_finished.is_connected(_on_animation_finished):
+		enemy.get_node("AnimatedSprite2D").animation_finished.connect(_on_animation_finished)
+	#enemy.get_node("AnimatedSprite2D").animation_finished.connect(_on_animation_finished.bind(enemy), CONNECT_ONE_SHOT)
 
 func _on_animation_finished():
 	if state_machine and enemy.global_position.distance_to(enemy.player.global_position) > enemy.attack_range:

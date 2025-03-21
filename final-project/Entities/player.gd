@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var direction = +1;
 
 @onready var state_machine = $StateMachine
+@onready var agent := GSAISteeringAgent.new()
 
 @onready var idle_state = $StateMachine/IdleState
 @onready var run_state = $StateMachine/RunState
@@ -48,6 +49,7 @@ func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	_update_agent()
 	move_and_slide()
 
 func flip_direction(is_left: bool):
@@ -69,3 +71,7 @@ func flip_direction(is_left: bool):
 func toggle_input():
 	can_move = false if can_move == true else true
 	state_machine.change_state(idle_state)
+	
+func _update_agent() -> void:
+	agent.position.x = global_position.x
+	agent.position.y = global_position.y
