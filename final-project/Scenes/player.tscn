@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=81 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Health/hurtbox.gd" id="15_000ri"]
 [ext_resource type="Script" path="res://StateMachine/hurt.gd" id="16_2rxvo"]
 [ext_resource type="Script" path="res://StateMachine/death.gd" id="17_suy4x"]
+[ext_resource type="Script" path="res://StateMachine/roll.gd" id="18_wtuqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -470,7 +471,7 @@ texture_filter = 1
 position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
-animation = &"attack"
+animation = &"stand"
 speed_scale = 3.0
 centered = false
 
@@ -502,6 +503,9 @@ script = ExtResource("16_2rxvo")
 
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("17_suy4x")
+
+[node name="RollState" type="Node" parent="StateMachine"]
+script = ExtResource("18_wtuqi")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("13_fpp71")

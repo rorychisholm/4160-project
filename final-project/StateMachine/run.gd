@@ -3,7 +3,7 @@ extends State
 class_name RunState
 
 func enter(player):
-	#print("Entered RunState")
+	print("Entered RunState")
 	player.get_node("AnimatedSprite2D").animation = "run"
 
 func process_input(player, _event: InputEvent):
@@ -11,6 +11,8 @@ func process_input(player, _event: InputEvent):
 		state_machine.change_state(player.jump_state)
 	elif Input.is_action_just_pressed("basic_attack"):
 		state_machine.change_state(player.attack_state)
+	elif Input.is_action_just_pressed("roll"):
+		state_machine.change_state(player.roll_state)
 
 func physics_update(player, _delta: float):
 	if Input.is_action_pressed("move_right"):

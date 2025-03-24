@@ -3,7 +3,7 @@ extends State
 class_name IdleState
 
 func enter(player):
-	#print("Entered IdleState")
+	print("Entered IdleState")
 	player.velocity = Vector2.ZERO
 	if (player.direction < 0):
 		player.flip_direction(true)
@@ -23,6 +23,8 @@ func process_input(player, _event: InputEvent):
 			state_machine.change_state(player.jump_state)
 		elif Input.is_action_just_pressed("basic_attack"):
 			state_machine.change_state(player.attack_state)
+		elif Input.is_action_just_pressed("roll"):
+			state_machine.change_state(player.roll_state)
 
 func physics_update(player, _delta: float):
 	if not player.is_on_floor():
