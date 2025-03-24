@@ -6,13 +6,13 @@ func enter(player):
 	#print("Entered RunState")
 	player.get_node("AnimatedSprite2D").animation = "run"
 
-func process_input(player, event: InputEvent):
+func process_input(player, _event: InputEvent):
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state(player.jump_state)
 	elif Input.is_action_just_pressed("basic_attack"):
 		state_machine.change_state(player.attack_state)
 
-func physics_update(player, delta: float):
+func physics_update(player, _delta: float):
 	if Input.is_action_pressed("move_right"):
 		player.direction = +1
 		player.flip_direction(false)

@@ -16,10 +16,10 @@ func enter(player):
 	player.add_child(timer)
 	timer.start()
 
-func exit(player):
+func exit(_player):
 	# Disable hitbox when exiting attack state
 	if timer:
 		timer.queue_free()
 
-func _on_animation_finished(player):
+func _on_animation_finished(_player):
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

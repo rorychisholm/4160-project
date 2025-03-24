@@ -12,7 +12,7 @@ var _direction_face := GSAIAgentLocation.new()
 @onready var agent := await GSAICharacterBody2DAgent.new(self)
 @onready var accel := GSAITargetAcceleration.new()
 @onready var player_agent: GSAISteeringAgent = owner.find_child("Player", true, false).agent
-
+@onready var health_node = $Health
 
 func _ready() -> void:
 	agent.calculate_velocities = false
@@ -65,3 +65,7 @@ func setup(predict_time: float, linear_speed_max: float, linear_accel_max: float
 	agent.linear_speed_max = linear_speed_max
 
 	set_physics_process(true)
+
+
+func _on_health_empty() -> void:
+	queue_free()

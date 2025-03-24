@@ -32,7 +32,7 @@ func _ready():
 	if health_node:
 		health_node.connect("health_empty", Callable(self, "_on_health_empty"))
 
-func _on_health_health_empty() -> void:
+func _on_health_empty() -> void:
 	print("Health is empty, transitioning to death state...")
 	state_machine.change_state(death_state)
 	
@@ -70,7 +70,7 @@ func find_player():
 	if players.size() > 0:
 		player = players[0]  # Assuming there's only one player
 
-func move_towards_player(delta):
+func move_towards_player(_delta):
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity.x = direction.x * speed

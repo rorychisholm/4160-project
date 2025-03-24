@@ -9,7 +9,7 @@ func enter(enemy):
 	
 	
 
-func physics_process(enemy, delta):
+func physics_process(enemy, _delta):
 	if enemy.player:
 		var distance = enemy.global_position.distance_to(enemy.player.global_position)
 		

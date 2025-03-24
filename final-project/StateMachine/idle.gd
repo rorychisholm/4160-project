@@ -15,7 +15,7 @@ func enter_hurt_state():
 	state_machine.change_state(player.hurt_state)
 	player.velocity.x = -1 * player.direction * 300  # Apply knockback
 
-func process_input(player, event: InputEvent):
+func process_input(player, _event: InputEvent):
 	if player.can_move:
 		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
 			state_machine.change_state(player.run_state)
@@ -24,6 +24,6 @@ func process_input(player, event: InputEvent):
 		elif Input.is_action_just_pressed("basic_attack"):
 			state_machine.change_state(player.attack_state)
 
-func physics_update(player, delta: float):
+func physics_update(player, _delta: float):
 	if not player.is_on_floor():
 		state_machine.change_state(player.fall_state)

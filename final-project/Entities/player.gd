@@ -25,9 +25,7 @@ func _ready():
 	health = $Health
 	if health == null:
 		print("Error, health node missing in player scene!")
-	else:
-		health.health = 5
-	# Assign dynamically if not set in Inspector
+
 	if state_machine == null:
 		state_machine = get_node_or_null(state_machine)
 
@@ -40,9 +38,9 @@ func _ready():
 	if health:
 		health.connect("health_empty", Callable(self, "_on_health_empty"))
 
-func _on_health_health_empty() -> void:
+func _on_health_empty() -> void:
 	print("PLAYER HAS DIED")
-	#state_machine.change_state(death_state)
+	state_machine.change_state(death_state)
 	
 
 func _physics_process(delta):
@@ -58,7 +56,7 @@ func flip_direction(is_left: bool):
 	var hurtbox = $HurtBox
 	var player_offset: float = -10  # Adjust based on hitbox size
 	var attack_offset: float = 50
-	var direction = -1 if is_left else 1
+	direction = -1 if is_left else 1
 	
 	if not is_left:
 		player_offset = -15
