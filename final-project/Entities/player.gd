@@ -35,8 +35,8 @@ func _ready():
 	else:
 		print("❌ Error: StateMachine node not found!")
 		
-	if health:
-		health.connect("health_empty", Callable(self, "_on_health_empty"))
+	#if health:
+	#	health.connect("health_empty", Callable(self, "_on_health_empty"))
 
 func _on_health_empty() -> void:
 	print("PLAYER HAS DIED")

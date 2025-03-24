@@ -29,8 +29,8 @@ func _ready():
 		print("❌ Error: StateMachine node not found!")
 		
 	# Connect the health node's signal to the death transition
-	if health_node:
-		health_node.connect("health_empty", Callable(self, "_on_health_empty"))
+	#if health_node:
+	#	health_node.connect("health_empty", Callable(self, "_on_health_empty"))
 
 func _on_health_empty() -> void:
 	print("Health is empty, transitioning to death state...")
