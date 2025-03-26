@@ -7,9 +7,12 @@ class_name RollState
 
 var roll_timer: float = 0.0
 var roll_direction: int = 1
+var original_collision_mask
 
 func enter(player):
 	print("Entering Roll State")
+	var hurtbox = player.get_node("HurtBox/CollisionShape2D")
+	hurtbox.disabled = true
 	roll_speed = 300
 	roll_timer = roll_duration
 	roll_direction = sign(player.velocity.x)
@@ -21,11 +24,15 @@ func enter(player):
 	
 	player.get_node("Health").set_temporary_immortality(roll_duration)
 	
+	#save original collision mask
+	original_collision_mask = player.get_collision_mask()
+	
+	#set new collision mask removing enemies (layer 2)
+	player.set_collision_mask(original_collision_mask & ~2)
+	
 func physics_update(_player, delta):
 	roll_timer -= delta
 	if roll_timer <= 0:
-		player.velocity.x = 0
-		roll_speed = 0
 		state_machine.change_state(player.idle_state)
 		
 	player.velocity.x = roll_direction * roll_speed
@@ -36,3 +43,7 @@ func process_inputs(_event: InputEvent):
 func exit(player):
 	print("Exiting Roll")
 	player.velocity.x = 0
+	roll_speed = 0
+	player.set_collision_mask(original_collision_mask)
+	var hurtbox = player.get_node("HurtBox/CollisionShape2D")
+	hurtbox.disabled = false

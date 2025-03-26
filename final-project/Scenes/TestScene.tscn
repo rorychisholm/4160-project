@@ -24,6 +24,7 @@ texture = ExtResource("1_ak3rh")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_o5yh2")]
 position = Vector2(59, 347)
+collision_mask = 6
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -150)
@@ -31,9 +32,13 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Enemy_Skeleton" parent="." instance=ExtResource("4_5tru7")]
 position = Vector2(627, 394)
+collision_layer = 2
+collision_mask = 5
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(61, 526)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -60,6 +65,8 @@ position = Vector2(59, 197)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-375, -72)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]

@@ -6,7 +6,6 @@ class_name HurtState
 var timer: Timer
 
 func enter(player):
-	#print("Entered AttackState")
 	player.velocity = Vector2.ZERO  # Stop movement
 	player.get_node("AnimatedSprite2D").animation = "hurt"  # Play hurt animation
 	timer = Timer.new()
@@ -18,7 +17,6 @@ func enter(player):
 	player.get_node("AnimatedSprite2D").modulate = Color(1, 0.25, 0.25)  # Flash red
 
 func exit(player):
-	# Disable hitbox when exiting attack state
 	if timer:
 		timer.queue_free()
 
