@@ -1,15 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1t0ydjtelhlv"]
+[gd_scene load_steps=10 format=3 uid="uid://b1t0ydjtelhlv"]
 
 [ext_resource type="Script" path="res://bat.gd" id="1_0mwnt"]
-[ext_resource type="Texture2D" uid="uid://cxhyog7fg72q0" path="res://assets/bat.png" id="2_3gnqg"]
 [ext_resource type="Script" path="res://Health/health.gd" id="3_oaifi"]
 [ext_resource type="Script" path="res://Health/hurtbox.gd" id="4_8hcdp"]
+[ext_resource type="Texture2D" uid="uid://bjbwv2uctho4m" path="res://assets/Limbo/bat.png" id="4_cc7vk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvubl"]
 radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utsxi"]
-radius = 12.0416
+radius = 23.0217
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1lc7"]
+atlas = ExtResource("4_cc7vk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5rw0"]
+atlas = ExtResource("4_cc7vk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fhto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1lc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5rw0")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
 
 [node name="Bat" type="CharacterBody2D"]
 collision_layer = 0
@@ -18,11 +40,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mvubl")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, -2)
-scale = Vector2(0.273438, 0.273438)
-texture = ExtResource("2_3gnqg")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_oaifi")
@@ -33,5 +50,12 @@ health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_utsxi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(2.28125, 2.28125)
+sprite_frames = SubResource("SpriteFrames_8fhto")
+animation = &"fly"
+frame_progress = 0.226067
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_empty"]

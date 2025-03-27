@@ -6,7 +6,7 @@ func enter(player):
 	#print("Entered FallState")
 	player.get_node("AnimatedSprite2D").animation = "fall"
 
-func physics_update(player, delta: float):
+func physics_update(player, _delta: float):
 	if Input.is_action_pressed("move_right"):
 		player.direction = +1
 		player.flip_direction(false)

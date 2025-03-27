@@ -16,10 +16,17 @@ var _direction_face := GSAIAgentLocation.new()
 
 func _ready() -> void:
 	agent.calculate_velocities = false
+	$AnimatedSprite2D.play()
 	set_physics_process(false)
 
 
 func _physics_process(delta: float) -> void:
+	# Code for flipping the bat's sprite when changing directions
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_v = true  # Flip when moving left
+	elif velocity.x > 0:
+		$AnimatedSprite2D.flip_v = false  # Reset when moving right
+	
 	_direction_face.position = agent.position + accel.linear.normalized()
 
 	_blend.calculate_steering(accel)

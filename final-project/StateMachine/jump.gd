@@ -7,7 +7,7 @@ func enter(player):
 	player.velocity.y = player.jump_strength
 	player.get_node("AnimatedSprite2D").animation = "jump"
 
-func physics_update(player, delta: float):
+func physics_update(player, _delta: float):
 	if Input.is_action_pressed("move_right"):
 		player.direction = +1
 		player.flip_direction(false)
