@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Final Project"
+config/name="Legend of Night: Crawl Back From Hell"
+config/version="Alpha 1.0"
 run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.14, 0.14, 0.14, 0)
+boot_splash/image="res://assets/game_icon.png"
+boot_splash/fullsize=false
+config/icon="res://assets/game_icon.png"
 
 [display]
 
@@ -21,6 +26,7 @@ window/size/viewport_height=480
 window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/cursors/48x48px/Cursor Default Friends.png"
 
 [input]
 
