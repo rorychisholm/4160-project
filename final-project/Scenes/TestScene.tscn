@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="3_7s1gv"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="5_x3n3e"]
-[ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://bat.tscn" id="6_ot1gw"]
+[ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="6_ot1gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
 size = Vector2(1298, 101)
@@ -32,8 +32,6 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Enemy_Skeleton" parent="." instance=ExtResource("4_5tru7")]
 position = Vector2(627, 394)
-collision_layer = 2
-collision_mask = 5
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(61, 526)
@@ -95,4 +93,4 @@ character = NodePath("../../Player")
 
 [node name="Bat" parent="." instance=ExtResource("6_ot1gw")]
 position = Vector2(472, 225)
-collision_mask = 0
+collision_layer = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1t0ydjtelhlv"]
+[gd_scene load_steps=12 format=3 uid="uid://b1t0ydjtelhlv"]
 
-[ext_resource type="Script" path="res://bat.gd" id="1_0mwnt"]
+[ext_resource type="Script" path="res://Entities/bat.gd" id="1_0mwnt"]
 [ext_resource type="Script" path="res://Health/health.gd" id="3_oaifi"]
 [ext_resource type="Script" path="res://Health/hurtbox.gd" id="4_8hcdp"]
 [ext_resource type="Texture2D" uid="uid://bjbwv2uctho4m" path="res://assets/Limbo/bat.png" id="4_cc7vk"]
+[ext_resource type="Script" path="res://Health/hitbox.gd" id="5_qpnn6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvubl"]
 radius = 12.0416
@@ -33,6 +34,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cknmv"]
+radius = 15.1327
+
 [node name="Bat" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_0mwnt")
@@ -57,5 +61,12 @@ scale = Vector2(2.28125, 2.28125)
 sprite_frames = SubResource("SpriteFrames_8fhto")
 animation = &"fly"
 frame_progress = 0.226067
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("5_qpnn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_cknmv")
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_empty"]
