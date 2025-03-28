@@ -14,6 +14,7 @@ var _direction_face := GSAIAgentLocation.new()
 @onready var player_agent: GSAISteeringAgent = owner.find_child("Player", true, false).agent
 @onready var health_node = $Health
 
+
 func _ready() -> void:
 	agent.calculate_velocities = false
 	$AnimatedSprite2D.play()
@@ -75,4 +76,13 @@ func setup(predict_time: float, linear_speed_max: float, linear_accel_max: float
 
 
 func _on_health_empty() -> void:
+	set_physics_process(false)
+	velocity = Vector2.ZERO  # Stop velocity-based movement
+	agent.linear_velocity = Vector3.ZERO  # Stop AI-driven movement
+	$AnimatedSprite2D.play("death")
+	if not $AnimatedSprite2D.animation_finished.is_connected(_on_animation_finished):
+		$AnimatedSprite2D.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+
+func _on_animation_finished():
+	print("Freeing queue")
 	queue_free()
