@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var jump_strength = -600
 @export var direction = +1;
 
+@export var atk_stma = 30 # attack stamina use
+@export var rll_stma = 30 # roll atamia use
+
 @onready var state_machine = $StateMachine
 @onready var agent := GSAISteeringAgent.new()
 

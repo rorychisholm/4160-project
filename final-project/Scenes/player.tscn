@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=82 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://StateMachine/hurt.gd" id="16_2rxvo"]
 [ext_resource type="Script" path="res://StateMachine/death.gd" id="17_suy4x"]
 [ext_resource type="Script" path="res://StateMachine/roll.gd" id="18_wtuqi"]
+[ext_resource type="Script" path="res://Health/stamina.gd" id="20_elbkr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -511,11 +512,13 @@ script = ExtResource("18_wtuqi")
 script = ExtResource("13_fpp71")
 max_health = 10
 
+[node name="Stamina" type="Node" parent="."]
+script = ExtResource("20_elbkr")
+
 [node name="BasicAttack" type="Area2D" parent="."]
 position = Vector2(43, -45)
 collision_mask = 0
 script = ExtResource("14_k6b5d")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttack"]
 position = Vector2(-1, 0)

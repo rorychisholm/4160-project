@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5512cein81w0"]
+[gd_scene load_steps=17 format=3 uid="uid://b5512cein81w0"]
 
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="6_2qwfc"]
 [ext_resource type="Texture2D" uid="uid://dluve6kcvvlc7" path="res://assets/IntroScene/demon circle.png" id="7_wwt7g"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="8_akckh"]
+[ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="10_lhlr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u304e"]
 size = Vector2(2632, 64)
@@ -198,6 +199,19 @@ grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
 character = NodePath("../../Player")
+
+[node name="StaminaBar" parent="UI" instance=ExtResource("10_lhlr1")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 43.0
+offset_bottom = 95.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
 [connection signal="pressed" from="Trigger/CanvasLayer/DialogueBox/Button" to="Trigger/CanvasLayer/DialogueBox" method="_on_button_pressed"]

@@ -19,8 +19,10 @@ func physics_update(player, _delta: float):
 		player.velocity.x = 0
 	
 	if player.is_on_floor():
-		if Input.is_action_just_pressed("basic_attack"):
+		if Input.is_action_just_pressed("basic_attack") and player.get_node("Stamina").expend(player.atk_stma) >= 0:
 			state_machine.change_state(player.attack_state)
+		elif Input.is_action_just_pressed("roll") and player.get_node("Stamina").expend(player.rll_stma) >= 0:
+			state_machine.change_state(player.roll_state)
 		elif Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
 			state_machine.change_state(player.run_state)
 		elif Input.is_action_just_pressed("jump"):
