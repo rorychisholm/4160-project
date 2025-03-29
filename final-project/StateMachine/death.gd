@@ -3,12 +3,14 @@ extends State
 class_name DeathState
 
 @export var hurt_duration: float = 0.5
+
 var timer: Timer
 
 func enter(player):
-	#print("Entered AttackState")
 	player.velocity = Vector2.ZERO  # Stop movement
 	player.get_node("AnimatedSprite2D").animation = "death"  # Play hurt animation
+	player.get_node("DthSFX").play()
+	#player.get_node("HurtBox/CollisionShape2D").disabled = true
 	timer = Timer.new()
 	timer.wait_time = hurt_duration
 	timer.one_shot = true
@@ -17,7 +19,6 @@ func enter(player):
 	timer.start()
 
 func exit(_player):
-	# Disable hitbox when exiting attack state
 	if timer:
 		timer.queue_free()
 

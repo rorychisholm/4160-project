@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cms3a1qtmamox"
+path="res://.godot/imported/Ghouls 'n Ghosts (Commodore 64) - Baron Rankle's Tower (Stage 3).wav-a236c9274d5c1763be1a4ae7704060c0.sample"
+
+[deps]
+
+source_file="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - Baron Rankle's Tower (Stage 3).wav"
+dest_files=["res://.godot/imported/Ghouls 'n Ghosts (Commodore 64) - Baron Rankle's Tower (Stage 3).wav-a236c9274d5c1763be1a4ae7704060c0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=85 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -22,6 +22,9 @@
 [ext_resource type="Script" path="res://StateMachine/death.gd" id="17_suy4x"]
 [ext_resource type="Script" path="res://StateMachine/roll.gd" id="18_wtuqi"]
 [ext_resource type="Script" path="res://Health/stamina.gd" id="20_elbkr"]
+[ext_resource type="AudioStream" uid="uid://w2oyesnf4f6r" path="res://assets/sound/sfx/Jump_MK2_STAY_00002.wav" id="23_ip478"]
+[ext_resource type="AudioStream" uid="uid://bcsd3ywcgr38" path="res://assets/sound/sfx/Attack_MK2_STAY_00025.wav" id="23_s6qm7"]
+[ext_resource type="AudioStream" uid="uid://xyh4256l32wq" path="res://assets/sound/sfx/Death_MK2_STAY_00027.wav" id="24_7enod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -472,7 +475,7 @@ texture_filter = 1
 position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
-animation = &"stand"
+animation = &"attack"
 speed_scale = 3.0
 centered = false
 
@@ -536,5 +539,14 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_2gnqi")
+
+[node name="JmpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_ip478")
+
+[node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_s6qm7")
+
+[node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_7enod")
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_empty"]

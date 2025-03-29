@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://defkjtv3s8ap8"]
+[gd_scene load_steps=19 format=4 uid="uid://defkjtv3s8ap8"]
 
 [ext_resource type="Texture2D" uid="uid://3jhcxp7p5wjo" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background1.png" id="1_2fh6p"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_1sw58"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="5_r3c7h"]
 [ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="8_gmvhm"]
 [ext_resource type="Script" path="res://Scenes/death_plane.gd" id="9_ideno"]
+[ext_resource type="AudioStream" uid="uid://btwsmf1joymp8" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - Poltergeist Mix (OC ReMix).wav" id="11_qs6t8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a81kh"]
 texture = ExtResource("5_o1ir0")
@@ -1054,14 +1055,14 @@ position = Vector2(-708, 263)
 shape = SubResource("RectangleShape2D_pn8qi")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_1sw58")]
-position = Vector2(300, 146)
+position = Vector2(255, -290)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(120, -144)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(420, 2)
+position = Vector2(375, -434)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1080,10 +1081,14 @@ size_flags_vertical = 0
 character = NodePath("../../Player")
 
 [node name="StaminaBar" parent="UI" instance=ExtResource("8_gmvhm")]
+anchors_preset = -1
+anchor_right = 0.0152778
+anchor_bottom = 0.16875
 offset_left = 33.0
 offset_top = 15.0
 offset_right = 33.0
 offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Enemy_Skeleton" parent="." instance=ExtResource("5_r3c7h")]
 position = Vector2(742, 415)
@@ -1102,5 +1107,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5fk6o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qs6t8")
+autoplay = true
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

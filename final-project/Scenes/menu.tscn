@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd6aod3xbuc58"]
+[gd_scene load_steps=8 format=3 uid="uid://dd6aod3xbuc58"]
 
 [ext_resource type="Script" path="res://UI/menu.gd" id="1_12wop"]
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="2_jvr4d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://brwhsf5q4wss8" path="res://assets/frames-buttons-panels/button.tres" id="3_uaynb"]
 [ext_resource type="Texture2D" uid="uid://dtq0w0woe0cm2" path="res://assets/Menu/generatedtext (1).png" id="4_t0rmw"]
 [ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="4_x7qdw"]
+[ext_resource type="AudioStream" uid="uid://bcgky8xqt2kle" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - Lucifer's Castle (Stage 5).wav" id="7_jbxwq"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -78,6 +79,10 @@ texture = ExtResource("3_jp7jy")
 position = Vector2(49, 66)
 scale = Vector2(0.722222, 0.722222)
 texture = ExtResource("4_t0rmw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jbxwq")
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]

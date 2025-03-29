@@ -11,6 +11,7 @@ func enter(player):
 		player.flip_direction(true)
 	# Play attack animation and enable hitbox
 	player.get_node("AnimatedSprite2D").animation = "attack"
+	player.get_node("AtkSFX").play()
 	var hitbox = player.get_node("BasicAttack/CollisionShape2D")
 	hitbox.disabled = false
 
