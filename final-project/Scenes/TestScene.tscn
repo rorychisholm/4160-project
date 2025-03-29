@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnjsekf548ee2"]
+[gd_scene load_steps=11 format=3 uid="uid://dnjsekf548ee2"]
 
 [ext_resource type="Script" path="res://Scenes/test_scene.gd" id="1_1dkps"]
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
@@ -6,7 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="3_7s1gv"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="5_x3n3e"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="6_ot1gw"]
+=======
+[ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://bat.tscn" id="6_ot1gw"]
+[ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="7_slbve"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5isro"]
 size = Vector2(1298, 101)
@@ -90,6 +95,11 @@ grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
 character = NodePath("../../Player")
+
+[node name="StaminaBar" parent="UI" instance=ExtResource("7_slbve")]
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 369.0
 
 [node name="Bat" parent="." instance=ExtResource("6_ot1gw")]
 position = Vector2(472, 225)
