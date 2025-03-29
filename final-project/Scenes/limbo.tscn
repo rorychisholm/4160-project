@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://defkjtv3s8ap8"]
+[gd_scene load_steps=18 format=4 uid="uid://defkjtv3s8ap8"]
 
 [ext_resource type="Texture2D" uid="uid://3jhcxp7p5wjo" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background1.png" id="1_2fh6p"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_1sw58"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bkphemhv3nvng" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background4a.png" id="4_5rr13"]
 [ext_resource type="Texture2D" uid="uid://bvv178avhdydn" path="res://assets/Limbo/PixelFantasy_Caves_1.0/mainlev_build.png" id="5_o1ir0"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="5_r3c7h"]
+[ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="8_gmvhm"]
 [ext_resource type="Script" path="res://Scenes/death_plane.gd" id="9_ideno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a81kh"]
@@ -1077,6 +1078,12 @@ grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
 character = NodePath("../../Player")
+
+[node name="StaminaBar" parent="UI" instance=ExtResource("8_gmvhm")]
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 33.0
+offset_bottom = 15.0
 
 [node name="Enemy_Skeleton" parent="." instance=ExtResource("5_r3c7h")]
 position = Vector2(742, 415)
