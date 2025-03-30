@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5512cein81w0"]
+[gd_scene load_steps=19 format=3 uid="uid://b5512cein81w0"]
 
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="6_2qwfc"]
 [ext_resource type="Texture2D" uid="uid://dluve6kcvvlc7" path="res://assets/IntroScene/demon circle.png" id="7_wwt7g"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="8_akckh"]
+[ext_resource type="Theme" uid="uid://brwhsf5q4wss8" path="res://assets/frames-buttons-panels/button.tres" id="8_k8sru"]
+[ext_resource type="Script" path="res://UI/button.gd" id="8_vfxoj"]
+[ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="9_txqlw"]
 [ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="10_lhlr1"]
 [ext_resource type="AudioStream" uid="uid://cms3a1qtmamox" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - Baron Rankle's Tower (Stage 3).wav" id="10_urtdw"]
 
@@ -21,7 +24,7 @@ size = Vector2(56, 750)
 size = Vector2(44, 748)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alesc"]
-size = Vector2(131, 710)
+size = Vector2(315, 710)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu5hb"]
 bg_color = Color(0.0313726, 0.0313726, 0.0313726, 0.968627)
@@ -29,15 +32,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="FontVariation" id="FontVariation_314fs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fyaw"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="IntroLevel" type="Node2D"]
 position = Vector2(894, -9)
@@ -115,7 +109,7 @@ position = Vector2(473, 434)
 script = ExtResource("5_rf48t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
-position = Vector2(55.5, -326)
+position = Vector2(122.5, -326)
 shape = SubResource("RectangleShape2D_alesc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Trigger"]
@@ -127,12 +121,13 @@ anchor_left = 0.5
 anchor_top = 0.283
 anchor_right = 0.5
 anchor_bottom = 0.283
-offset_left = -365.0
+offset_left = -327.0
 offset_top = -99.84
-offset_right = 298.0
+offset_right = 336.0
 offset_bottom = 71.16
 size_flags_horizontal = 4
 script = ExtResource("6_2qwfc")
+metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="Trigger/CanvasLayer/DialogueBox"]
 layout_mode = 0
@@ -149,16 +144,16 @@ anchor_left = 0.5
 anchor_top = 0.649
 anchor_right = 0.5
 anchor_bottom = 0.649
-offset_left = 220.5
-offset_top = 0.0209885
-offset_right = 278.5
+offset_left = 205.5
+offset_top = 0.0210037
+offset_right = 283.5
 offset_bottom = 35.021
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 0.486275)
-theme_override_fonts/font = SubResource("FontVariation_314fs")
-theme_override_styles/normal = SubResource("StyleBoxFlat_6fyaw")
-text = "Skip"
+theme = ExtResource("8_k8sru")
+theme_override_fonts/font = ExtResource("9_txqlw")
+text = "Continue"
+script = ExtResource("8_vfxoj")
 
 [node name="Speaker" type="Label" parent="Trigger/CanvasLayer/DialogueBox"]
 layout_mode = 0
@@ -166,6 +161,7 @@ offset_left = 47.0
 offset_top = 12.0
 offset_right = 172.0
 offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("9_txqlw")
 
 [node name="Dialogue" type="Label" parent="Trigger/CanvasLayer/DialogueBox"]
 layout_mode = 1
@@ -181,6 +177,7 @@ offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_txqlw")
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 autowrap_mode = 2
