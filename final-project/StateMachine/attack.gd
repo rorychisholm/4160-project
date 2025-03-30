@@ -12,16 +12,14 @@ func enter(player):
 	# Play attack animation and enable hitbox
 	player.get_node("AnimatedSprite2D").animation = "attack"
 	player.get_node("AtkSFX").play()
-	var hitbox = player.get_node("BasicAttack/CollisionShape2D")
-	hitbox.disabled = false
+	call_deferred("toggle_hitbox")
 
 	# Wait for animation to finish before transitioning (non-blocking)
 	player.get_node("AnimatedSprite2D").animation_finished.connect(_on_animation_finished.bind(player), CONNECT_ONE_SHOT)
 
 func exit(player):
 	# Disable hitbox when exiting attack state
-	var hitbox = player.get_node("BasicAttack/CollisionShape2D")
-	hitbox.disabled = true
+	call_deferred("toggle_hitbox")
 
 func _on_animation_finished(player):
 	if state_machine:
@@ -37,3 +35,10 @@ func _on_animation_finished(player):
 		else:
 			state_machine.change_state(player.idle_state)
 		player.get_node("AnimatedSprite2D").play()
+
+func toggle_hitbox():
+	var hitbox = player.get_node("BasicAttack/CollisionShape2D")
+	if hitbox.disabled == true:
+		hitbox.disabled = false
+	else:
+		hitbox.disabled = true

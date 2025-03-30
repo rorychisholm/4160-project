@@ -74,8 +74,8 @@ func move_towards_player(_delta):
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity.x = direction.x * speed
-		velocity.y = 0 #makes sure they don't start flying up at the player
-		#print("Moving towards player, velocity: ", velocity)
+		if is_on_floor():  #only reset Y velocity if on the ground
+			velocity.y = 0 #makes sure they don't start flying up at the player
 		# Flip the sprite based on the direction of movement
 		if velocity.x > 0:
 			flip_direction(false)  # Flip sprite to face right (default)

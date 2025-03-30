@@ -39,7 +39,7 @@ func set_health(value: int):
 	if not clamped_value == health: #if its not min or max health
 		var difference = clamped_value - health #get the diff we setting
 		health = value #set the health
-		health_changed.emit()
+		#health_changed.emit()
 
 func get_health() -> int:
 	return health
