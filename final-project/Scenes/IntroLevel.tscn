@@ -213,6 +213,7 @@ size_flags_vertical = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_urtdw")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

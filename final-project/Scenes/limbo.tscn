@@ -1110,6 +1110,7 @@ shape = SubResource("RectangleShape2D_5fk6o")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_qs6t8")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
