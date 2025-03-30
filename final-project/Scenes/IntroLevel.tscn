@@ -50,6 +50,8 @@ metadata/_edit_lock_ = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-1280, 462)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -58,6 +60,8 @@ shape = SubResource("RectangleShape2D_u304e")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(-988, 4)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
@@ -66,6 +70,8 @@ shape = SubResource("RectangleShape2D_tjmd7")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(894, -4)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]

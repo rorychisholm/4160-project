@@ -5,9 +5,11 @@ extends CharacterBody2D
 #const JUMP_VELOCITY = -400.0
 
 func _ready():
-	var sprite = $AnimatedSprite2D
-	sprite.flip_h = true #make him face the player
-	sprite.play() #play the animation
+	var root = get_tree().current_scene
+	if root and root.name == "IntroLevel":
+		var sprite = $AnimatedSprite2D
+		sprite.flip_h = true #make him face the player
+		sprite.play() #play the animation
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

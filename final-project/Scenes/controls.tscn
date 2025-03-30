@@ -682,7 +682,7 @@ sprite_frames = SubResource("SpriteFrames_txowp")
 frame_progress = 0.704104
 
 [node name="NightSprite" type="AnimatedSprite2D" parent="." groups=["animations"]]
-position = Vector2(50, 412)
+position = Vector2(44, 389)
 scale = Vector2(1.6875, 1.6875)
 sprite_frames = SubResource("SpriteFrames_gmdnd")
 frame = 3
