@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1t0ydjtelhlv"]
+[gd_scene load_steps=23 format=3 uid="uid://b1t0ydjtelhlv"]
 
 [ext_resource type="Script" path="res://Entities/bat.gd" id="1_0mwnt"]
 [ext_resource type="Script" path="res://Health/health.gd" id="3_oaifi"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bd4d3hed7m5tg" path="res://assets/bat/bat_death.png" id="4_bgkie"]
 [ext_resource type="Texture2D" uid="uid://bjbwv2uctho4m" path="res://assets/Limbo/bat.png" id="4_cc7vk"]
 [ext_resource type="Script" path="res://Health/hitbox.gd" id="5_qpnn6"]
+[ext_resource type="AudioStream" uid="uid://csl6ra117fcj2" path="res://assets/sound/sfx/Bat_Move_MK2_S05_00015.wav" id="7_8qykv"]
+[ext_resource type="AudioStream" uid="uid://eyxdfqhbmbme" path="res://assets/sound/sfx/Bat_Death_MK2_S05_00016.wav" id="8_1qbtg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvubl"]
 radius = 12.0416
@@ -130,5 +132,13 @@ script = ExtResource("5_qpnn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_cknmv")
+
+[node name="MvSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8qykv")
+volume_db = -20.0
+
+[node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1qbtg")
+volume_db = -20.0
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_empty"]

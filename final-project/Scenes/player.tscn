@@ -545,20 +545,26 @@ shape = SubResource("CapsuleShape2D_2gnqi")
 
 [node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_s6qm7")
+volume_db = -20.0
 
 [node name="HrtSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_i2dwu")
+volume_db = -20.0
 
 [node name="RllSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_2twkp")
+volume_db = -20.0
 
 [node name="JmpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_ip478")
+volume_db = -20.0
 
 [node name="LndSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_jamyg")
+volume_db = -20.0
 
 [node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_7enod")
+volume_db = -20.0
 
 [connection signal="health_empty" from="Health" to="." method="_on_health_empty"]

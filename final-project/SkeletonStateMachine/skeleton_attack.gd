@@ -16,9 +16,13 @@ func physics_process(enemy, _delta):
 func attack(enemy):
 	enemy.velocity = Vector2.ZERO
 	enemy.get_node("AnimatedSprite2D").animation = "Attack" #play attack ani
+	
 	var hitbox = enemy.get_node("AttackBox/CollisionShape2D")
+	
+	#enemy.get_node("AtkSFX").play()
 	if enemy.get_node("AnimatedSprite2D").frame in [5, 6, 7]:
 		hitbox.set_deferred("disabled", false) #if they are in the range of frames, set enable hitbox after
+		
 	else:
 		hitbox.set_deferred("disabled", true) #else disable to hotbox
 	

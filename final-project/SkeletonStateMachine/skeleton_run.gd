@@ -18,6 +18,4 @@ func physics_process(enemy, _delta):
 		elif distance <= enemy.attack_range:
 			get_parent().change_state("Attack")
 		else:
-			var direction = (enemy.player.global_position - enemy.global_position).normalized()
-			enemy.velocity.x = direction * enemy.speed
-			enemy.move_and_slide()
+			get_parent().move_towards_player(_delta)

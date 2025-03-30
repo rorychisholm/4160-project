@@ -18,14 +18,20 @@ var _direction_face := GSAIAgentLocation.new()
 func _ready() -> void:
 	agent.calculate_velocities = false
 	$AnimatedSprite2D.play() #play the flying animation of the bat
+	
 	set_physics_process(false)
 
 
 func _physics_process(delta: float) -> void:
 	# Code for flipping the bat's sprite when changing directions
 	if velocity.x < 0:
+		if $AnimatedSprite2D.flip_v == false:
+			$MvSFX.play()
 		$AnimatedSprite2D.flip_v = true  # Flip when moving left
+		
 	elif velocity.x > 0:
+		if $AnimatedSprite2D.flip_v == true:
+			$MvSFX.play()
 		$AnimatedSprite2D.flip_v = false  # Reset when moving right
 	
 	_direction_face.position = agent.position + accel.linear.normalized()
@@ -80,6 +86,7 @@ func _on_health_empty() -> void: #when the bat dies
 	velocity = Vector2.ZERO  # stop velocity
 	agent.linear_velocity = Vector3.ZERO  # stop AI-driven movement
 	$AnimatedSprite2D.play("death") #play death animation
+	$DthSFX.play()
 	if not $AnimatedSprite2D.animation_finished.is_connected(_on_animation_finished):
 		$AnimatedSprite2D.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 

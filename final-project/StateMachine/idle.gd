@@ -3,7 +3,7 @@ extends State
 class_name IdleState
 
 func enter(player):
-	print("Entered IdleState")
+	#print("Entered IdleState")
 	player.velocity = Vector2.ZERO
 	if (player.direction < 0):
 		player.flip_direction(true)
@@ -14,6 +14,7 @@ func enter(player):
 func enter_hurt_state():
 	state_machine.change_state(player.hurt_state)
 	player.velocity.x = -1 * player.direction * 300  # Apply knockback
+	player.velocity.y = +1
 
 func process_input(player, _event: InputEvent):
 	if player.can_move:
