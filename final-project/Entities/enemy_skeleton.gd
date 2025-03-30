@@ -35,6 +35,7 @@ func _on_health_empty() -> void:
 	
 func play_death_animation():
 	if not $AnimatedSprite2D.animation_finished.is_connected(_on_death_animation_finished):
+		$DthSFX.play()
 		$AnimatedSprite2D.play("Death")
 		$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_death_animation_finished"))
 
@@ -46,6 +47,7 @@ func _physics_process(delta):
 	find_player()
 	#logic for deciding whether to be in attack state or idle state
 	#if they are in range, attack, else idle animation
+	
 	if player:
 		var distance = global_position.distance_to(player.global_position)
 		
@@ -56,7 +58,6 @@ func _physics_process(delta):
 		else:
 			state_machine.change_state(run_state)
 			move_towards_player(delta)
-
 	# Apply gravity if enemy isnt on floor
 	if not is_on_floor():
 		velocity.y += gravity * delta

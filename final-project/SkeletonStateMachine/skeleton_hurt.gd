@@ -5,9 +5,11 @@ extends SkeletonState
 
 # Called when the node enters the scene tree for the first time.
 func enter(enemy):
-	print("Enemy is hurt!")
+	#print("Enemy is hurt!")
+	
 	enemy.velocity = Vector2.ZERO  # Stop movement
 	enemy.get_node("AnimatedSprite2D").modulate = Color(1, 0, 0)  # Flash red
+	enemy.get_node("HrtSFX").play()
 	
 	# Apply knockback (optional)
 	var player = get_tree().get_first_node_in_group("player")  # Find player

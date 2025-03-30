@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="5_r3c7h"]
 [ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="8_gmvhm"]
 [ext_resource type="Script" path="res://Scenes/death_plane.gd" id="9_ideno"]
-[ext_resource type="AudioStream" uid="uid://btwsmf1joymp8" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - Poltergeist Mix (OC ReMix).wav" id="11_qs6t8"]
+[ext_resource type="AudioStream" uid="uid://c7vvcks3qh48c" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Crystal Forest (Stage 4).wav" id="11_jvv1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a81kh"]
 texture = ExtResource("5_o1ir0")
@@ -1111,7 +1111,7 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5fk6o")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_qs6t8")
+stream = ExtResource("11_jvv1l")
 volume_db = -20.0
 autoplay = true
 
