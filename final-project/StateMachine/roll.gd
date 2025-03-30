@@ -21,7 +21,7 @@ func enter(player):
 		
 	player.velocity.x = roll_direction * roll_speed
 	player.get_node("AnimatedSprite2D").animation = "roll"
-	
+	player.get_node("RllSFX").play()
 	player.get_node("Health").set_temporary_immortality(roll_duration)
 	
 	#save original collision mask
@@ -52,7 +52,6 @@ func process_inputs(_event: InputEvent):
 	pass
 	
 func exit(player):
-	print("Exiting Roll")
 	player.velocity.x = 0
 	roll_speed = 0
 	player.set_collision_mask(original_collision_mask)

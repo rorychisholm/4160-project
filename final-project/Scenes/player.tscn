@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cuy20am731ocf"]
+[gd_scene load_steps=88 format=3 uid="uid://cuy20am731ocf"]
 
 [ext_resource type="Texture2D" uid="uid://swm458khq3l4" path="res://assets/_Run.png" id="1_s4als"]
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_yrvga"]
@@ -24,7 +24,10 @@
 [ext_resource type="Script" path="res://Health/stamina.gd" id="20_elbkr"]
 [ext_resource type="AudioStream" uid="uid://w2oyesnf4f6r" path="res://assets/sound/sfx/Jump_MK2_STAY_00002.wav" id="23_ip478"]
 [ext_resource type="AudioStream" uid="uid://bcsd3ywcgr38" path="res://assets/sound/sfx/Attack_MK2_STAY_00025.wav" id="23_s6qm7"]
+[ext_resource type="AudioStream" uid="uid://dt4x0o0vo2uy" path="res://assets/sound/sfx/Roll_MK2_STAY_00000.wav" id="24_2twkp"]
 [ext_resource type="AudioStream" uid="uid://xyh4256l32wq" path="res://assets/sound/sfx/Death_MK2_STAY_00027.wav" id="24_7enod"]
+[ext_resource type="AudioStream" uid="uid://b544yovte7n" path="res://assets/sound/sfx/Hurt_MK2_STAY_00021.wav" id="24_i2dwu"]
+[ext_resource type="AudioStream" uid="uid://dnj25fiuh1vkv" path="res://assets/sound/sfx/Land_MK2_STAY_00001.wav" id="25_jamyg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfqq6"]
 atlas = ExtResource("4_bkyru")
@@ -540,11 +543,20 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_2gnqi")
 
+[node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_s6qm7")
+
+[node name="HrtSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_i2dwu")
+
+[node name="RllSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_2twkp")
+
 [node name="JmpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_ip478")
 
-[node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("23_s6qm7")
+[node name="LndSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_jamyg")
 
 [node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_7enod")
