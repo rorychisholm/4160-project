@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnjsekf548ee2"]
+[gd_scene load_steps=11 format=3 uid="uid://dnjsekf548ee2"]
 
 [ext_resource type="Script" path="res://Scenes/test_scene.gd" id="1_1dkps"]
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_o5yh2"]
-[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="3_7s1gv"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="5_x3n3e"]
 [ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="6_ot1gw"]
@@ -26,7 +25,6 @@ texture = ExtResource("1_ak3rh")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_o5yh2")]
 position = Vector2(59, 347)
-collision_mask = 6
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -150)
@@ -48,17 +46,14 @@ shape = SubResource("RectangleShape2D_5isro")
 [node name="ground3" type="Sprite2D" parent="Ground"]
 position = Vector2(653.599, -0.406269)
 scale = Vector2(0.274376, 0.179615)
-texture = ExtResource("3_7s1gv")
 
 [node name="ground2" type="Sprite2D" parent="Ground"]
 position = Vector2(198, 2.29478e-05)
 scale = Vector2(0.201042, 0.18083)
-texture = ExtResource("3_7s1gv")
 
 [node name="ground1" type="Sprite2D" parent="Ground"]
 position = Vector2(-187, 1.52588e-05)
 scale = Vector2(0.2, 0.182)
-texture = ExtResource("3_7s1gv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(59, 197)

@@ -8,6 +8,7 @@ class_name RollState
 var roll_timer: float = 0.0
 var roll_direction: int = 1
 var original_collision_mask
+var enemies_original_masks = {}
 
 func enter(player):
 	print("Entering Roll State")
@@ -30,6 +31,24 @@ func enter(player):
 	#set new collision mask removing enemies (layer 2)
 	player.set_collision_mask(original_collision_mask & ~2)
 	
+	#disable enemy collisions
+	disable_enemy_collisions()
+	
+func disable_enemy_collisions():
+	# Iterate through all enemies in the scene
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		# Store original enemy collision mask
+		enemies_original_masks[enemy] = enemy.get_collision_mask()
+		# Remove player's layer (assuming player is on layer 1)
+		enemy.set_collision_mask(enemy.get_collision_mask() & ~1)
+
+func restore_enemy_collisions():
+	# Restore enemies' original collision masks
+	for enemy in enemies_original_masks.keys():
+		if is_instance_valid(enemy):  # Ensure enemy still exists
+			enemy.set_collision_mask(enemies_original_masks[enemy])
+	enemies_original_masks.clear()  # Clear stored values
+
 func physics_update(_player, delta):
 	roll_timer -= delta
 	if roll_timer <= 0:
@@ -57,4 +76,5 @@ func exit(player):
 	player.set_collision_mask(original_collision_mask)
 	var hurtbox = player.get_node("HurtBox/CollisionShape2D")
 	hurtbox.disabled = false
+	restore_enemy_collisions()
 	

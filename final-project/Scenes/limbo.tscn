@@ -1031,6 +1031,8 @@ texture = ExtResource("4_5rr13")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-133, 496)
+collision_layer = 4
+collision_mask = 3
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
