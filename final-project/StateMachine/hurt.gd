@@ -8,6 +8,7 @@ var timer: Timer
 func enter(player):
 	player.velocity = Vector2.ZERO  # Stop movement
 	player.get_node("AnimatedSprite2D").animation = "hurt"  # Play hurt animation
+	player.get_node("HrtSFX").play()
 	timer = Timer.new()
 	timer.wait_time = hurt_duration
 	timer.one_shot = true
