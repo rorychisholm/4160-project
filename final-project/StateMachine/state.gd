@@ -1,5 +1,5 @@
 extends Node
-
+#DEFAULT STATE CLASS FOR PLAYER
 class_name State
 
 var player: CharacterBody2D

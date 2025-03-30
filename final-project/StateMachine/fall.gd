@@ -7,6 +7,7 @@ func enter(player):
 	player.get_node("AnimatedSprite2D").animation = "fall"
 
 func physics_update(player, _delta: float):
+	#handle direction change when falling
 	if Input.is_action_pressed("move_right"):
 		player.direction = +1
 		player.flip_direction(false)
@@ -19,6 +20,7 @@ func physics_update(player, _delta: float):
 		player.velocity.x = 0
 	
 	if player.is_on_floor():
+		#handling player input when they land, what to do next
 		player.get_node("LndSFX").play()
 		if Input.is_action_just_pressed("basic_attack") and player.get_node("Stamina").expend(player.atk_stma) >= 0:
 			state_machine.change_state(player.attack_state)

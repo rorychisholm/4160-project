@@ -20,7 +20,7 @@ func enter(player):
 
 func exit(_player):
 	if timer:
-		timer.queue_free()
+		timer.queue_free() #remove the timer
 
 func _on_animation_finished(_player):
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn") #change scene

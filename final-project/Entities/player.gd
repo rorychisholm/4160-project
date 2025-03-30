@@ -5,12 +5,12 @@ extends CharacterBody2D
 @export var jump_strength = -600
 @export var direction = +1;
 
-@export var atk_stma = 30 # attack stamina use
-@export var rll_stma = 30 # roll atamia use
+@export var atk_stma = 40 # attack stamina use
+@export var rll_stma = 50 # roll atamia use
+
+@onready var agent := GSAISteeringAgent.new() #variable for the bat enemies to track player
 
 @onready var state_machine = $StateMachine
-@onready var agent := GSAISteeringAgent.new()
-
 @onready var idle_state = $StateMachine/IdleState
 @onready var run_state = $StateMachine/RunState
 @onready var jump_state = $StateMachine/JumpState
@@ -38,14 +38,11 @@ func _ready():
 		state_machine.change_state(idle_state)  # Ensure initial state setup
 	else:
 		print("❌ Error: StateMachine node not found!")
-		
-	#if health:
-	#	health.connect("health_empty", Callable(self, "_on_health_empty"))
+
 
 func _on_health_empty() -> void:
 	print("PLAYER HAS DIED")
 	state_machine.change_state(death_state)
-	
 
 func _physics_process(delta):
 	# Apply gravity
@@ -55,6 +52,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func flip_direction(is_left: bool):
+	#logic for flipping the direction of the player's hitboxes and hurtboxes when they change direction
 	var hitbox = $CollisionShape2D
 	var attack_hitbox = $BasicAttack
 	var hurtbox = $HurtBox
@@ -71,9 +69,10 @@ func flip_direction(is_left: bool):
 	attack_hitbox.position.x = direction * attack_offset
 	
 func toggle_input():
+	#method for stopping input detection so player cannot do anything (used in cutscenes)
 	can_move = false if can_move == true else true
 	state_machine.change_state(idle_state)
 	
-func _update_agent() -> void:
+func _update_agent() -> void: #method for the bat to track the player, updating the player (agent)'s location
 	agent.position.x = global_position.x
 	agent.position.y = global_position.y

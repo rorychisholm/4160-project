@@ -216,4 +216,5 @@ stream = ExtResource("10_urtdw")
 autoplay = true
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="visibility_changed" from="Trigger/CanvasLayer/DialogueBox" to="Trigger/CanvasLayer/DialogueBox" method="_on_visibility_changed"]
 [connection signal="pressed" from="Trigger/CanvasLayer/DialogueBox/Button" to="Trigger/CanvasLayer/DialogueBox" method="_on_button_pressed"]

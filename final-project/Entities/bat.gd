@@ -1,5 +1,5 @@
 extends CharacterBody2D
-# Represents a ship that chases after the player.
+# THIS CODE IS MOSTLY TAKEN FROM THE STEERING BEHAVIOURS LIBRARY
 
 @export var use_seek: bool = false
 
@@ -8,16 +8,16 @@ var _blend: GSAIBlend
 var _linear_drag_coefficient := 0.025
 var _angular_drag := 0.1
 var _direction_face := GSAIAgentLocation.new()
-
 @onready var agent := await GSAICharacterBody2DAgent.new(self)
 @onready var accel := GSAITargetAcceleration.new()
 @onready var player_agent: GSAISteeringAgent = owner.find_child("Player", true, false).agent
-@onready var health_node = $Health
+
+@onready var health_node = $Health #to represent the bat's health
 
 
 func _ready() -> void:
 	agent.calculate_velocities = false
-	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.play() #play the flying animation of the bat
 	set_physics_process(false)
 
 
@@ -75,14 +75,13 @@ func setup(predict_time: float, linear_speed_max: float, linear_accel_max: float
 	set_physics_process(true)
 
 
-func _on_health_empty() -> void:
+func _on_health_empty() -> void: #when the bat dies
 	set_physics_process(false)
-	velocity = Vector2.ZERO  # Stop velocity-based movement
-	agent.linear_velocity = Vector3.ZERO  # Stop AI-driven movement
-	$AnimatedSprite2D.play("death")
+	velocity = Vector2.ZERO  # stop velocity
+	agent.linear_velocity = Vector3.ZERO  # stop AI-driven movement
+	$AnimatedSprite2D.play("death") #play death animation
 	if not $AnimatedSprite2D.animation_finished.is_connected(_on_animation_finished):
 		$AnimatedSprite2D.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 
-func _on_animation_finished():
-	print("Freeing queue")
+func _on_animation_finished(): #actually remove the bat when the death animation fininshes
 	queue_free()

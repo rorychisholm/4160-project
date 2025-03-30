@@ -14,9 +14,9 @@ func _ready():
 
 func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as HitBox
-	if hitbox != null:
-		health.take_damage(hitbox.damage)
+	if hitbox != null: #if a hitbox exists
+		health.take_damage(hitbox.damage) #cause damage on the health of the entity caught in the hitbox
 		print(get_parent(), " Health: ", health.health)
-		received_damage.emit(hitbox.damage)
+		received_damage.emit(hitbox.damage) #emit the signal for the damage given
 		if health.health == 0:
-			health.health_empty.emit()
+			health.health_empty.emit() #if they die, emit the death signal

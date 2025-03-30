@@ -1,5 +1,5 @@
 extends Node
-
+#DEFAULT STATE CLASS
 class_name SkeletonState
 
 var enemy: CharacterBody2D

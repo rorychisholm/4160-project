@@ -28,9 +28,6 @@ func _ready():
 	else:
 		print("❌ Error: StateMachine node not found!")
 		
-	# Connect the health node's signal to the death transition
-	#if health_node:
-	#	health_node.connect("health_empty", Callable(self, "_on_health_empty"))
 
 func _on_health_empty() -> void:
 	print("Health is empty, transitioning to death state...")
@@ -47,6 +44,8 @@ func _on_death_animation_finished() -> void:
 
 func _physics_process(delta):
 	find_player()
+	#logic for deciding whether to be in attack state or idle state
+	#if they are in range, attack, else idle animation
 	if player:
 		var distance = global_position.distance_to(player.global_position)
 		
@@ -65,7 +64,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func find_player():
-	# Example: Find the player in the scene
+	#logic for finding the player
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]  # Assuming there's only one player
@@ -74,7 +73,7 @@ func move_towards_player(_delta):
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity.x = direction.x * speed
-		velocity.y = 0
+		velocity.y = 0 #makes sure they don't start flying up at the player
 		#print("Moving towards player, velocity: ", velocity)
 		# Flip the sprite based on the direction of movement
 		if velocity.x > 0:
@@ -83,6 +82,7 @@ func move_towards_player(_delta):
 			flip_direction(true)  # Flip sprite to face left (towards player)
 			
 func flip_direction(is_left: bool):
+	#method for changing the direction of the hitboxes and hurtboxes attached to the enemy
 	var hitbox = $CollisionShape2D
 	var attack_hitbox = $AttackBox
 	var hurtbox = $HurtBox

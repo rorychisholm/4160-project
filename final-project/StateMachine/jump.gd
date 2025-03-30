@@ -2,8 +2,7 @@ extends State
 
 class_name JumpState
 
-func enter(player):
-	#print("Entered JumpState")
+func enter(player): #apply jump forces
 	player.velocity.y = player.jump_strength
 	player.get_node("AnimatedSprite2D").animation = "jump"
 	player.get_node("JmpSFX").play()

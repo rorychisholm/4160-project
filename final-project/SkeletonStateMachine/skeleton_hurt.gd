@@ -1,8 +1,3 @@
-"""
-NOTES
-- animation hasnt been implmented yet only flash
-"""
-
 extends SkeletonState
 
 @export var flash_duration: float = 0.2  # Time for flashing red

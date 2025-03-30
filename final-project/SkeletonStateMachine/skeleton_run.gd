@@ -1,7 +1,6 @@
 extends SkeletonState
 
 func enter(enemy):
-	#print("Enemy in Run State")
 	if enemy.health_node and enemy.health_node.get_health() <= 0:
 		state_machine.change_state(enemy.death_state)
 	else:
@@ -11,6 +10,7 @@ func enter(enemy):
 
 func physics_process(enemy, _delta):
 	if enemy.player:
+		#if a player is found, determine if they are in attack range or out of detection range
 		var distance = enemy.global_position.distance_to(enemy.player.global_position)
 		
 		if distance > enemy.detection_range:

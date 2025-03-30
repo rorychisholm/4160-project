@@ -17,6 +17,7 @@ func _ready() -> void:
 			print("Error: No valid state found in StateMachine!")
 
 func change_state(new_state: SkeletonState):
+	#logic for changing states
 	if current_state:
 		current_state.exit(enemy)
 	

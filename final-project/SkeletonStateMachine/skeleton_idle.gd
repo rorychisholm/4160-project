@@ -6,7 +6,7 @@ func enter(enemy):
 		enemy = get_parent().get_parent()
 	
 	if enemy.health_node and enemy.health_node.get_health() <= 0:
-		state_machine.change_state(enemy.death_state)
+		state_machine.change_state(enemy.death_state) #if they enter the state and should be dead, kill them
 	else:
 		enemy.velocity = Vector2.ZERO
 		enemy.get_node("AnimatedSprite2D").animation = "Idle"
