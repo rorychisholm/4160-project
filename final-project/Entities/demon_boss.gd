@@ -15,7 +15,6 @@ var is_dead = false
 @onready var dth_sprite := $Death
 @onready var ncr_dth_sprite := $Necro_Death
 @onready var decision_timer := Timer.new()
-@onready var boss_defeat_timer = $BossDefeatTimer
 
 func _ready():
 	idl_sprite.visible = true
@@ -116,8 +115,6 @@ func _death():
 	
 	ncr_dth_sprite.play()
 	await ncr_dth_sprite.animation_finished
+	var boss_defeat_timer = get_node("/root/Limbo/BossDefeatTimer")
 	boss_defeat_timer.start()
 	queue_free()
-
-func _on_BossDefeatTimer_timeout():
-	get_tree().change_scene_to_file("res://WinScreen.tscn")

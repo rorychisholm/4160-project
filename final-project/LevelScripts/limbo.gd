@@ -75,3 +75,7 @@ func set_predict_time(value: float) -> void:
 
 	for bat in pursuers:
 		bat._behaviour.predict_time_max = value
+		
+
+func _on_BossDefeatTimer_timeout():
+	get_tree().change_scene_to_file("res://Scenes/WinScreen.tscn")

@@ -2234,7 +2234,7 @@ position = Vector2(15.5, 15.5)
 scale = Vector2(2.9375, 2.9375)
 sprite_frames = SubResource("SpriteFrames_vqmwq")
 autoplay = "default"
-frame_progress = 0.929828
+frame_progress = 0.0575675
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthArea/HealthPack"]
 position = Vector2(15.5, 15.5)
@@ -2254,7 +2254,7 @@ disabled = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_1sw58")]
 y_sort_enabled = true
-position = Vector2(5658, 95)
+position = Vector2(114, -261)
 atk_stma = 25
 rll_stma = 40
 
@@ -2270,7 +2270,7 @@ tile_set = SubResource("TileSet_ykgyr")
 y_sort_origin = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5778, -49)
+position = Vector2(234, -405)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -2424,7 +2424,11 @@ position = Vector2(15.5, -31)
 shape = SubResource("RectangleShape2D_1yjyb")
 
 [node name="Marker2D" type="Marker2D" parent="BossTrigger"]
-position = Vector2(989, 90)
+position = Vector2(992, 55)
+
+[node name="BossDefeatTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="body_entered" from="HealthArea" to="HealthArea" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
@@ -2432,3 +2436,4 @@ position = Vector2(989, 90)
 [connection signal="body_entered" from="BatSpawn2" to="BatSpawn2" method="_on_body_entered"]
 [connection signal="body_entered" from="BatSpawn3" to="BatSpawn3" method="_on_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_body_entered"]
+[connection signal="timeout" from="BossDefeatTimer" to="." method="_on_BossDefeatTimer_timeout"]

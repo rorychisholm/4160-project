@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://crqpf8qrupw1a"]
 
-[ext_resource type="Theme" uid="uid://brwhsf5q4wss8" path="res://assets/frames-buttons-panels/button.tres" id="1_6mhv0"]
-[ext_resource type="Script" path="res://UI/win_screen.gd" id="2_p568k"]
-[ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="2_y0p4u"]
-[ext_resource type="Script" path="res://UI/button.gd" id="3_jrysh"]
-[ext_resource type="AudioStream" uid="uid://bfhr3b61ufbkh" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Haunted Graveyard (Stage 1).wav" id="4_6x6uq"]
+[ext_resource type="Theme" uid="uid://brwhsf5q4wss8" path="res://assets/frames-buttons-panels/button.tres" id="1_smcg7"]
+[ext_resource type="Script" path="res://UI/win_screen.gd" id="2_yjku1"]
+[ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="3_cavw2"]
+[ext_resource type="Script" path="res://UI/button.gd" id="4_b7a3u"]
+[ext_resource type="AudioStream" uid="uid://bfhr3b61ufbkh" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Haunted Graveyard (Stage 1).wav" id="5_ct17t"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -13,8 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_6mhv0")
-script = ExtResource("2_p568k")
+theme = ExtResource("1_smcg7")
+script = ExtResource("2_yjku1")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -26,7 +26,7 @@ offset_top = 26.0
 offset_right = 228.0
 offset_bottom = 141.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_y0p4u")
+theme_override_fonts/font = ExtResource("3_cavw2")
 theme_override_font_sizes/font_size = 56
 text = "       You Win!
 Congratulations!"
@@ -44,7 +44,7 @@ offset_right = 228.0
 offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_y0p4u")
+theme_override_fonts/normal_font = ExtResource("3_cavw2")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
 text = "[center]With that, the Knight named Night crawled his way back out of hell, defeating the evil necromancer who sent him down there and returned to the overworld to find his lost princess.
@@ -68,12 +68,12 @@ offset_right = 102.0
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_y0p4u")
+theme_override_fonts/font = ExtResource("3_cavw2")
 text = "Return to Menu"
-script = ExtResource("3_jrysh")
+script = ExtResource("4_b7a3u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_6x6uq")
+stream = ExtResource("5_ct17t")
 volume_db = -25.0
 autoplay = true
 
