@@ -111,6 +111,7 @@ shape = SubResource("CircleShape2D_mvubl")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_oaifi")
+max_health = 2
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("4_8hcdp")

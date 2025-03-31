@@ -18,13 +18,16 @@ func _ready() -> void:
 	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 	
-	pursuers = get_tree().get_nodes_in_group("bats")
+	refresh_bats()
 	
+func refresh_bats(): #this function made to run every frame to check if a new bat has spawned, 
+					 #then it will call setup on the new bat
+	pursuers = get_tree().get_nodes_in_group("bats")
 	for bat in pursuers:
 		bat.setup(predict_time, linear_speed_max, linear_accel_max)
-	
 
 func _process(delta: float) -> void:
+	refresh_bats()
 	if exit_requested:
 		time_left -= delta
 		if time_left <= 0:

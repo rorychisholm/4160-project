@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://defkjtv3s8ap8"]
+[gd_scene load_steps=36 format=4 uid="uid://defkjtv3s8ap8"]
 
 [ext_resource type="Texture2D" uid="uid://3jhcxp7p5wjo" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background1.png" id="1_2fh6p"]
 [ext_resource type="Script" path="res://Scenes/limbo.gd" id="1_pmvge"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Scenes/death_plane.gd" id="9_ideno"]
 [ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="10_5b28m"]
 [ext_resource type="AudioStream" uid="uid://c7vvcks3qh48c" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Crystal Forest (Stage 4).wav" id="11_jvv1l"]
+[ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="12_dby12"]
+[ext_resource type="Script" path="res://Scenes/bat_trigger.gd" id="15_thfkx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6bf4"]
 texture = ExtResource("5_o1ir0")
@@ -971,6 +973,15 @@ size = Vector2(295, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hplk1"]
 size = Vector2(16064, 317)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf04s"]
+size = Vector2(55, 161.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7fq4"]
+size = Vector2(79, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3lpt"]
+size = Vector2(91, 382)
+
 [node name="Limbo" type="Node2D"]
 script = ExtResource("1_pmvge")
 
@@ -1165,6 +1176,8 @@ shape = SubResource("RectangleShape2D_lf8ww")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_1sw58")]
 position = Vector2(255, -290)
+atk_stma = 25
+rll_stma = 40
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(120, -144)
@@ -1229,6 +1242,24 @@ position = Vector2(1321, 236)
 [node name="Enemy_Skeleton5" parent="." instance=ExtResource("5_r3c7h")]
 position = Vector2(2068, 245)
 
+[node name="Enemy_Skeleton6" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(2584, 416)
+
+[node name="Enemy_Skeleton7" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(2768, 416)
+
+[node name="Enemy_Skeleton8" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(4013, 333)
+
+[node name="Enemy_Skeleton9" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(5032, 416)
+
+[node name="Enemy_Skeleton10" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(5515, 416)
+
+[node name="Enemy_Skeleton11" parent="." instance=ExtResource("5_r3c7h")]
+position = Vector2(5810, 108)
+
 [node name="DeathPlane" type="Area2D" parent="."]
 position = Vector2(-464, 1798)
 script = ExtResource("9_ideno")
@@ -1254,4 +1285,49 @@ stream = ExtResource("11_jvv1l")
 volume_db = -20.0
 autoplay = true
 
+[node name="BatSpawn1" type="Area2D" parent="."]
+position = Vector2(1114, 393)
+script = ExtResource("15_thfkx")
+bat_scene = ExtResource("12_dby12")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatSpawn1"]
+position = Vector2(-8, 16)
+shape = SubResource("RectangleShape2D_kf04s")
+
+[node name="Marker2D" type="Marker2D" parent="BatSpawn1"]
+position = Vector2(-10, -611)
+
+[node name="BatSpawn2" type="Area2D" parent="."]
+position = Vector2(3270, 365)
+script = ExtResource("15_thfkx")
+bat_scene = ExtResource("12_dby12")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatSpawn2"]
+position = Vector2(1, -3)
+shape = SubResource("RectangleShape2D_b7fq4")
+
+[node name="Marker2D" type="Marker2D" parent="BatSpawn2"]
+position = Vector2(498, -470)
+
+[node name="BatSpawn3" type="Area2D" parent="."]
+position = Vector2(5130, 431)
+script = ExtResource("15_thfkx")
+bat_scene = ExtResource("12_dby12")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatSpawn3"]
+position = Vector2(12.5, -134)
+shape = SubResource("RectangleShape2D_o3lpt")
+
+[node name="Marker2D" type="Marker2D" parent="BatSpawn3"]
+position = Vector2(812, -551)
+
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="BatSpawn1" to="BatSpawn1" method="_on_body_entered"]
+[connection signal="body_entered" from="BatSpawn2" to="BatSpawn2" method="_on_body_entered"]
+[connection signal="body_entered" from="BatSpawn3" to="BatSpawn3" method="_on_body_entered"]

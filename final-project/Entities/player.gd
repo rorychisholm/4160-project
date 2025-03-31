@@ -71,6 +71,7 @@ func flip_direction(is_left: bool):
 func toggle_input():
 	#method for stopping input detection so player cannot do anything (used in cutscenes)
 	can_move = false if can_move == true else true
+	velocity = Vector2.ZERO
 	state_machine.change_state(idle_state)
 	
 func _update_agent() -> void: #method for the bat to track the player, updating the player (agent)'s location
