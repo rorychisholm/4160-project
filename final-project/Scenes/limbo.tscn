@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="10_5b28m"]
 [ext_resource type="AudioStream" uid="uid://c7vvcks3qh48c" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Crystal Forest (Stage 4).wav" id="11_jvv1l"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a81kh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6bf4"]
 texture = ExtResource("5_o1ir0")
 6:1/0 = 0
 20:1/0 = 0
@@ -924,7 +924,7 @@ texture = ExtResource("5_o1ir0")
 
 [sub_resource type="TileSet" id="TileSet_g5no8"]
 terrain_set_0/mode = 0
-sources/0 = SubResource("TileSetAtlasSource_a81kh")
+sources/0 = SubResource("TileSetAtlasSource_f6bf4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx7r8"]
 size = Vector2(3583, 163)
