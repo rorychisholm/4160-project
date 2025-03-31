@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5512cein81w0"]
+[gd_scene load_steps=20 format=3 uid="uid://b5512cein81w0"]
 
+[ext_resource type="Script" path="res://Scenes/intro_level.gd" id="1_h72op"]
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
 [ext_resource type="PackedScene" uid="uid://bhfed21m3f2sk" path="res://Scenes/demon.tscn" id="2_v7d1w"]
@@ -35,6 +36,7 @@ corner_radius_bottom_left = 20
 
 [node name="IntroLevel" type="Node2D"]
 position = Vector2(894, -9)
+script = ExtResource("1_h72op")
 
 [node name="Background 1" type="Sprite2D" parent="."]
 position = Vector2(-631, 110)
@@ -43,10 +45,9 @@ texture = ExtResource("1_jaeai")
 metadata/_edit_lock_ = true
 
 [node name="Background2" type="Sprite2D" parent="."]
-position = Vector2(684, 110)
+position = Vector2(682, 111)
 scale = Vector2(0.285, 0.285)
 texture = ExtResource("1_jaeai")
-metadata/_edit_lock_ = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-1280, 462)
@@ -216,6 +217,21 @@ grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="ExitLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -196.5
+offset_right = 0.5
+offset_bottom = -173.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_txqlw")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_urtdw")

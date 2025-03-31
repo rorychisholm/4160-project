@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	get_window().content_scale_mode = 2
+	get_window().content_scale_aspect = 1
+
 func _on_start_button_pressed() -> void: #when start button pressed, navigate to the next scene
 	get_tree().change_scene_to_file("res://Scenes/controls.tscn")
 

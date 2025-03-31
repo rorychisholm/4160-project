@@ -479,7 +479,7 @@ texture_filter = 1
 position = Vector2(-128, -174)
 scale = Vector2(2.06348, 2.16236)
 sprite_frames = SubResource("SpriteFrames_g3jjq")
-animation = &"attack"
+animation = &"stand"
 speed_scale = 3.0
 centered = false
 
