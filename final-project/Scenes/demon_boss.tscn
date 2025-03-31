@@ -1,14 +1,101 @@
-[gd_scene load_steps=29 format=3 uid="uid://d113650xv2m3"]
+[gd_scene load_steps=53 format=3 uid="uid://d113650xv2m3"]
 
 [ext_resource type="Texture2D" uid="uid://dk5d3atl3c38h" path="res://assets/demon_boss/demon-attack.png" id="1_bs6s4"]
 [ext_resource type="Script" path="res://Entities/demon_boss.gd" id="1_p5axr"]
 [ext_resource type="Texture2D" uid="uid://cmkvqtv06olvh" path="res://assets/demon_boss/demon-idle.png" id="2_puo5a"]
 [ext_resource type="Script" path="res://Health/hitbox.gd" id="3_dc4xh"]
 [ext_resource type="Script" path="res://Health/hurtbox.gd" id="3_vhcie"]
+[ext_resource type="Texture2D" uid="uid://dxpclsnr7dmf2" path="res://assets/IntroScene/Necromancer_creativekind-Sheet (1).png" id="3_vpjkh"]
+[ext_resource type="Texture2D" uid="uid://coichgcispekq" path="res://assets/demon_boss/demon-attack-no-breath.png" id="5_qssuk"]
 [ext_resource type="Script" path="res://Health/health.gd" id="5_uhogp"]
+[ext_resource type="AudioStream" uid="uid://csf6ed6fevccc" path="res://assets/sound/sfx/Boss_Attack_MK2_S10_00001.wav" id="7_7esyx"]
+[ext_resource type="AudioStream" uid="uid://ceicpu02ds7xi" path="res://assets/sound/sfx/Boss_Death_MK2_S10_00002.wav" id="8_bfdig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1878j"]
 size = Vector2(126.315, 250.92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixamp"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(0, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igcc4"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(160, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o0yh"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(320, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptivo"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(480, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bls73"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(640, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqwh"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(800, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dksj4"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(960, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6d5s"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(1120, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x17rr"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(1280, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b8yf"]
+atlas = ExtResource("3_vpjkh")
+region = Rect2(1440, 768, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5bvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixamp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igcc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o0yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptivo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bls73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dksj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6d5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x17rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b8yf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw1xg"]
 atlas = ExtResource("2_puo5a")
@@ -145,6 +232,70 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsjtt"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(0, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f56js"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(192, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpnnx"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(384, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ew4m"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(576, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lktb3"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(768, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngwts"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(960, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pty5d"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(1152, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gngve"]
+atlas = ExtResource("5_qssuk")
+region = Rect2(1344, 0, 192, 176)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_caaid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsjtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f56js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpnnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ew4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lktb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngwts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pty5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gngve")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gll4o"]
 radius = 64.0
 height = 176.0
@@ -169,13 +320,18 @@ shape = SubResource("RectangleShape2D_1878j")
 script = ExtResource("5_uhogp")
 max_health = 9
 
+[node name="Necro_Death" type="AnimatedSprite2D" parent="."]
+position = Vector2(-200, -128)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_m5bvc")
+flip_h = true
+
 [node name="Idle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(157, 96)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_btvn4")
 animation = &"fly"
-frame_progress = 0.239356
 centered = false
 offset = Vector2(-240, -192)
 metadata/_edit_group_ = true
@@ -186,10 +342,18 @@ position = Vector2(-194, -128)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_e70lv")
 animation = &"attack"
-frame_progress = 0.527306
 centered = false
 offset = Vector2(-140, -128)
 metadata/_edit_group_ = true
+
+[node name="Death" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-96, -128)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_caaid")
+animation = &"death"
+centered = false
+offset = Vector2(-140, -128)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
@@ -214,3 +378,11 @@ metadata/_edit_group_ = true
 position = Vector2(-192, -128)
 rotation = 0.110507
 shape = SubResource("CapsuleShape2D_ocb7i")
+
+[node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7esyx")
+volume_db = -10.0
+
+[node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_bfdig")
+volume_db = -10.0
