@@ -155,7 +155,7 @@ height = 210.26
 
 [node name="DemonBoss" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 6
 slide_on_ceiling = false
 script = ExtResource("1_p5axr")
 metadata/_edit_group_ = true
@@ -163,7 +163,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-191.064, -140.34)
 rotation = 0.110507
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1878j")
 
 [node name="Health" type="Node" parent="."]
@@ -193,7 +192,10 @@ offset = Vector2(-140, -128)
 metadata/_edit_group_ = true
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("3_dc4xh")
+damage = 5
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -203,6 +205,7 @@ shape = SubResource("CapsuleShape2D_gll4o")
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
 script = ExtResource("3_vhcie")
 health = NodePath("../Health")
 metadata/_edit_group_ = true

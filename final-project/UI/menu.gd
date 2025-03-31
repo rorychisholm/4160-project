@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	#sets the scale mode and aspect (fixes a bug where it gets offset later when you die)
 	get_window().content_scale_mode = 2
 	get_window().content_scale_aspect = 1
 

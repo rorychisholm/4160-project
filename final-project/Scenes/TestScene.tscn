@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnjsekf548ee2"]
+[gd_scene load_steps=13 format=3 uid="uid://dnjsekf548ee2"]
 
 [ext_resource type="Script" path="res://Scenes/test_scene.gd" id="1_1dkps"]
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="5_x3n3e"]
 [ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="6_ot1gw"]
 [ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="7_bqilb"]
+[ext_resource type="Texture2D" uid="uid://d24bhnvbcbjii" path="res://assets/vecteezy_isolated-dirt-ground-with-green-grass_.jpg" id="7_uy27h"]
 [ext_resource type="AudioStream" uid="uid://cnmybynvnymiy" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Village of Decay (Stage 2).wav" id="9_3vpiq"]
 [ext_resource type="PackedScene" uid="uid://d113650xv2m3" path="res://Scenes/demon_boss.tscn" id="9_emfoe"]
 
@@ -40,9 +41,7 @@ collision_layer = 2
 
 [node name="DemonBoss" parent="." instance=ExtResource("9_emfoe")]
 position = Vector2(1000, 499)
-walk_speed = 40.0
-attack_chance = 0.2
-decision_interval = 2.0
+attack_chance = 0.5
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(61, 526)
@@ -57,14 +56,17 @@ shape = SubResource("RectangleShape2D_5isro")
 [node name="ground3" type="Sprite2D" parent="Ground"]
 position = Vector2(653.599, -0.406269)
 scale = Vector2(0.274376, 0.179615)
+texture = ExtResource("7_uy27h")
 
 [node name="ground2" type="Sprite2D" parent="Ground"]
 position = Vector2(198, 2.29478e-05)
 scale = Vector2(0.201042, 0.18083)
+texture = ExtResource("7_uy27h")
 
 [node name="ground1" type="Sprite2D" parent="Ground"]
 position = Vector2(-187, 1.52588e-05)
 scale = Vector2(0.2, 0.182)
+texture = ExtResource("7_uy27h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(59, 197)
