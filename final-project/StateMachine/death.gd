@@ -23,4 +23,4 @@ func exit(_player):
 		timer.queue_free() #remove the timer
 
 func _on_animation_finished(_player):
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn") #change scene
+	get_tree().change_scene_to_file("res://Scenes/death_scene.tscn")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b5512cein81w0"]
 
-[ext_resource type="Script" path="res://Scenes/intro_level.gd" id="1_h72op"]
+[ext_resource type="Script" path="res://LevelScripts/intro_level.gd" id="1_h72op"]
 [ext_resource type="Texture2D" uid="uid://c6hn2cvsmklkh" path="res://assets/IntroScene/Preview 4.png" id="1_jaeai"]
 [ext_resource type="Texture2D" uid="uid://bjfhd3rjtpgnh" path="res://assets/IntroScene/Plan 1.png" id="2_pvgns"]
 [ext_resource type="PackedScene" uid="uid://bhfed21m3f2sk" path="res://Scenes/demon.tscn" id="2_v7d1w"]

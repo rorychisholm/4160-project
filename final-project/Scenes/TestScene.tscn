@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dnjsekf548ee2"]
 
-[ext_resource type="Script" path="res://Scenes/test_scene.gd" id="1_1dkps"]
+[ext_resource type="Script" path="res://LevelScripts/test_scene.gd" id="1_1dkps"]
 [ext_resource type="Texture2D" uid="uid://k0hgv4tgine2" path="res://assets/forest-background.png" id="1_ak3rh"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_o5yh2"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="4_5tru7"]

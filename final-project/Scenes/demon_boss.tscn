@@ -305,30 +305,32 @@ radius = 64.4919
 height = 210.26
 
 [node name="DemonBoss" type="CharacterBody2D"]
+position = Vector2(-4, 4)
 collision_layer = 2
 collision_mask = 6
 slide_on_ceiling = false
 script = ExtResource("1_p5axr")
+attack_chance = 0.5
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-191.064, -140.34)
+position = Vector2(4.93603, -17.34)
 rotation = 0.110507
 shape = SubResource("RectangleShape2D_1878j")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("5_uhogp")
-max_health = 9
+max_health = 10
 
 [node name="Necro_Death" type="AnimatedSprite2D" parent="."]
-position = Vector2(-200, -128)
+position = Vector2(-4, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_m5bvc")
 flip_h = true
 
 [node name="Idle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(157, 96)
+position = Vector2(353, 219)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_btvn4")
 animation = &"fly"
@@ -338,7 +340,7 @@ metadata/_edit_group_ = true
 
 [node name="Attack" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-194, -128)
+position = Vector2(2, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_e70lv")
 animation = &"attack"
@@ -348,7 +350,7 @@ metadata/_edit_group_ = true
 
 [node name="Death" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-96, -128)
+position = Vector2(100, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_caaid")
 animation = &"death"
@@ -356,6 +358,7 @@ centered = false
 offset = Vector2(-140, -128)
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(196, 123)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_dc4xh")
@@ -369,6 +372,7 @@ shape = SubResource("CapsuleShape2D_gll4o")
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+position = Vector2(196, 123)
 collision_layer = 0
 script = ExtResource("3_vhcie")
 health = NodePath("../Health")
@@ -380,9 +384,11 @@ rotation = 0.110507
 shape = SubResource("CapsuleShape2D_ocb7i")
 
 [node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(196, 123)
 stream = ExtResource("7_7esyx")
 volume_db = -10.0
 
 [node name="DthSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(196, 123)
 stream = ExtResource("8_bfdig")
 volume_db = -10.0

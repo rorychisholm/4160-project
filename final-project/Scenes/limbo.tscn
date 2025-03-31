@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=4 uid="uid://defkjtv3s8ap8"]
 
 [ext_resource type="Texture2D" uid="uid://3jhcxp7p5wjo" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background1.png" id="1_2fh6p"]
-[ext_resource type="Script" path="res://Scenes/limbo.gd" id="1_pmvge"]
+[ext_resource type="Script" path="res://LevelScripts/limbo.gd" id="1_pmvge"]
 [ext_resource type="PackedScene" uid="uid://cuy20am731ocf" path="res://Scenes/player.tscn" id="2_1sw58"]
 [ext_resource type="Texture2D" uid="uid://etq1l3mtv20a" path="res://assets/Limbo/PixelFantasy_Caves_1.0/background2.png" id="2_oppd5"]
 [ext_resource type="PackedScene" uid="uid://bkk1beq017idg" path="res://Scenes/health_bar.tscn" id="3_7p5m1"]
@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bvv178avhdydn" path="res://assets/Limbo/PixelFantasy_Caves_1.0/mainlev_build.png" id="5_o1ir0"]
 [ext_resource type="PackedScene" uid="uid://cma7oi2bpjivl" path="res://Scenes/enemy_skeleton.tscn" id="5_r3c7h"]
 [ext_resource type="PackedScene" uid="uid://8phb8x0nibbx" path="res://Scenes/stamina_bar.tscn" id="8_gmvhm"]
-[ext_resource type="Script" path="res://Scenes/death_plane.gd" id="9_ideno"]
+[ext_resource type="Script" path="res://triggers/death_plane.gd" id="9_ideno"]
 [ext_resource type="FontFile" uid="uid://dxbg5e6vl7v2v" path="res://assets/frames-buttons-panels/MinimalPixel v2.ttf" id="10_5b28m"]
 [ext_resource type="AudioStream" uid="uid://c7vvcks3qh48c" path="res://assets/sound/Ghouls 'n Ghosts (Commodore 64) - The Crystal Forest (Stage 4).wav" id="11_jvv1l"]
 [ext_resource type="PackedScene" uid="uid://b1t0ydjtelhlv" path="res://Scenes/bat.tscn" id="12_dby12"]
-[ext_resource type="Script" path="res://Scenes/bat_trigger.gd" id="15_thfkx"]
-[ext_resource type="Script" path="res://Scenes/boss_trigger.gd" id="16_30jfo"]
+[ext_resource type="Script" path="res://triggers/bat_trigger.gd" id="15_thfkx"]
+[ext_resource type="Script" path="res://triggers/boss_trigger.gd" id="16_30jfo"]
 [ext_resource type="PackedScene" uid="uid://d113650xv2m3" path="res://Scenes/demon_boss.tscn" id="17_wfhe4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6bf4"]
@@ -2323,7 +2323,7 @@ position = Vector2(15.5, -31)
 shape = SubResource("RectangleShape2D_1yjyb")
 
 [node name="Marker2D" type="Marker2D" parent="BossTrigger"]
-position = Vector2(996, 59)
+position = Vector2(989, 90)
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
 [connection signal="body_entered" from="BatSpawn1" to="BatSpawn1" method="_on_body_entered"]
