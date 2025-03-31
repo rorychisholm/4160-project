@@ -2234,7 +2234,7 @@ position = Vector2(15.5, 15.5)
 scale = Vector2(2.9375, 2.9375)
 sprite_frames = SubResource("SpriteFrames_vqmwq")
 autoplay = "default"
-frame_progress = 0.876071
+frame_progress = 0.929828
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthArea/HealthPack"]
 position = Vector2(15.5, 15.5)
