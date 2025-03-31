@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ceicpu02ds7xi" path="res://assets/sound/sfx/Boss_Death_MK2_S10_00002.wav" id="8_bfdig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1878j"]
-size = Vector2(126.315, 250.92)
+size = Vector2(128.094, 242.8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixamp"]
 atlas = ExtResource("3_vpjkh")
@@ -314,8 +314,7 @@ attack_chance = 0.5
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.93603, -17.34)
-rotation = 0.110507
+position = Vector2(4.04677, -21.4)
 shape = SubResource("RectangleShape2D_1878j")
 
 [node name="Health" type="Node" parent="."]
@@ -380,7 +379,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-192, -128)
-rotation = 0.110507
 shape = SubResource("CapsuleShape2D_ocb7i")
 
 [node name="AtkSFX" type="AudioStreamPlayer2D" parent="."]

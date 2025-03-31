@@ -18,6 +18,7 @@ region = Rect2(14.6079, 0, 12.6307, 69.239)
 margin = Rect2(0, -0.92, 0, 0)
 
 [node name="HealthBar" type="TextureProgressBar"]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
