@@ -36,7 +36,7 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(627, 394)
 
 [node name="Bat" parent="." instance=ExtResource("6_ot1gw")]
-position = Vector2(472, 225)
+position = Vector2(408, -117)
 collision_layer = 2
 
 [node name="DemonBoss" parent="." instance=ExtResource("9_emfoe")]

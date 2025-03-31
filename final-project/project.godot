@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Legend of Night: Crawl Back From Hell"
 config/version="Alpha 1.0"
-run/main_scene="res://Scenes/TestScene.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.14, 0.14, 0.14, 0)
 boot_splash/image="res://assets/game_icon.png"
