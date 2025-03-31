@@ -40,8 +40,7 @@ position = Vector2(408, -117)
 collision_layer = 2
 
 [node name="DemonBoss" parent="." instance=ExtResource("9_emfoe")]
-position = Vector2(1000, 499)
-attack_chance = 0.5
+position = Vector2(710, 375)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(61, 526)
@@ -102,9 +101,9 @@ size_flags_vertical = 0
 character = NodePath("../../Player")
 
 [node name="StaminaBar" parent="UI" instance=ExtResource("7_bqilb")]
-offset_left = 33.0
+offset_left = 36.0
 offset_top = 15.0
-offset_right = 33.0
+offset_right = 36.0
 offset_bottom = 15.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

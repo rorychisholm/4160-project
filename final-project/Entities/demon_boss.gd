@@ -9,12 +9,13 @@ var direction := 0  # -1 for left, 1 for right, 0 for idle
 var is_attacking := false
 var is_dead = false
 
-
 @onready var atk_sprite := $Attack
 @onready var idl_sprite := $Idle
 @onready var dth_sprite := $Death
 @onready var ncr_dth_sprite := $Necro_Death
 @onready var decision_timer := Timer.new()
+
+var player: CharacterBody2D = null
 
 func _ready():
 	idl_sprite.visible = true
@@ -39,11 +40,47 @@ func _physics_process(delta):
 	if is_attacking:
 		velocity = Vector2.ZERO
 		return
-	
+		
+	_face_player()
 	velocity.x = direction * walk_speed
 	velocity.y = 0
 	move_and_slide() 
 	
+func find_player():
+	#logic for finding the player
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]  # Assuming there's only one player
+		
+func _face_player():
+	find_player()
+	var direction = (player.global_position.x - global_position.x)
+	if direction > 0:
+		flip_direction(true)  # Flip sprite to face right (default)
+	elif direction < 0:
+		flip_direction(false)  # Flip sprite to face left (towards player)
+
+func flip_direction(is_right: bool):
+	#method for changing the direction of the hitboxes and hurtboxes attached to the enemy
+	var hitbox = $CollisionShape2D
+	var attack_hitbox = $AttackBox
+	var hurtbox = $HurtBox
+	var enemy_offset: float = -2  # Adjust based on hitbox size
+	var attack_offset: float = 27
+	var direction = -1 if is_right else 1
+	
+	if not is_right: #if left
+		enemy_offset = -10
+		attack_offset = 17
+	
+	idl_sprite.flip_h = is_right
+	atk_sprite.flip_h = is_right
+	dth_sprite.flip_h = is_right
+	ncr_dth_sprite.flip_h = is_right
+	
+	hitbox.position.x = direction * enemy_offset
+	hurtbox.position.x = direction * enemy_offset
+
 	
 func _on_decide_next_action():
 	if is_dead:
@@ -52,7 +89,6 @@ func _on_decide_next_action():
 	if $Health.health <= 0:
 		_death()
 		return
-
 		
 	if is_attacking:
 		return
