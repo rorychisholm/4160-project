@@ -41,7 +41,6 @@ collision_layer = 2
 
 [node name="DemonBoss" parent="." instance=ExtResource("9_emfoe")]
 position = Vector2(1000, 499)
-attack_chance = 0.5
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(61, 526)
