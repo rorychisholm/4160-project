@@ -2234,7 +2234,7 @@ position = Vector2(15.5, 15.5)
 scale = Vector2(2.9375, 2.9375)
 sprite_frames = SubResource("SpriteFrames_vqmwq")
 autoplay = "default"
-frame_progress = 0.0575675
+frame_progress = 0.696899
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthArea/HealthPack"]
 position = Vector2(15.5, 15.5)
@@ -2313,41 +2313,42 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_5b28m")
 
-[node name="Enemy_Skeleton" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(742, 415)
 
-[node name="Enemy_Skeleton2" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton2" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(1109, 415)
 
-[node name="Enemy_Skeleton3" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton3" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(1454, 415)
 
-[node name="Enemy_Skeleton4" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton4" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(1317, 258)
 
-[node name="Enemy_Skeleton5" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton5" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(2068, 259)
 
-[node name="Enemy_Skeleton6" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton6" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(2584, 416)
 
-[node name="Enemy_Skeleton7" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton7" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(2768, 416)
 
-[node name="Enemy_Skeleton8" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton8" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(4013, 333)
 
-[node name="Enemy_Skeleton9" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton9" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(5032, 416)
 
-[node name="Enemy_Skeleton10" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton10" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(5515, 416)
 
-[node name="Enemy_Skeleton11" parent="." instance=ExtResource("5_r3c7h")]
+[node name="Enemy_Skeleton11" parent="." groups=["skeletons"] instance=ExtResource("5_r3c7h")]
 position = Vector2(5810, 108)
 
 [node name="DeathPlane" type="Area2D" parent="."]
 position = Vector2(-464, 1798)
+collision_mask = 3
 script = ExtResource("9_ideno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
